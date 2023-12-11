@@ -7,3 +7,19 @@ f
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 N
 src/main/java/module-info.java,1\c\1c89a5491fbfda3fb050196d6a239f20200296e7
+h
+8src/main/java/com/studio/tattoostudio/DAO/ClientDao.java,9\c\9c241aa9ca308f6dd1bc3918e3c7247f8a6b2037
+f
+6src/main/java/com/studio/tattoostudio/Data/Design.java,9\6\9629325019b13aa53f5657efff1d838679595ba3
+f
+6src/main/java/com/studio/tattoostudio/Data/Studio.java,b\2\b2cff51dd90053469dd205c7facf6a46c4ff2bf2
+l
+<src/main/java/com/studio/tattoostudio/Data/TattooArtist.java,6\7\67e93e4b8ed561f94e8068176f46014107706133
+l
+<src/main/java/com/studio/tattoostudio/Data/DateOfTattoo.java,2\2\22d825b3828f33452e67724058e0bb0986b39857
+‡
+Wsrc/main/java/com/studio/tattoostudio/Exceptions/IncorrectLoginOrPasswordException.java,3\a\3a8dfb25f4eb0ae5c83d8451ae7c4e28a3194bb4
+j
+:src/main/java/com/studio/tattoostudio/Factory/Factory.java,8\a\8a04f19a9f866a3d130b223054eaa0b006a1c094
+€
+Psrc/main/java/com/studio/tattoostudio/Exceptions/ClientDoesntExistException.java,1\8\18b576e42f587882f8d0a19e2933a44585cc5c2b

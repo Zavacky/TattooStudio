@@ -1,6 +1,10 @@
 package com.studio.tattoostudio.Data;
-import java.time.LocalDateTime;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
+import java.time.LocalDateTime;
+@Data
+@AllArgsConstructor
 public class DateOfTattoo {
     private Long id;
     private TattooArtist artist;

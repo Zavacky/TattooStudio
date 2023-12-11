@@ -1,6 +1,6 @@
 
-t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(œ–„öøÿÿÿÿ
-œ
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(•¶ŒÙûÿÿÿÿ
-F
-java:S1068"0Remove this unused "jdbcTemplate" private field.(—®¦ö
+€
+java:S1488 "^Immediately return this expression instead of assigning it to the temporary variable "client".(¬€Í²ùÿÿÿÿ8´óíÇÅ1
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(œ–„öøÿÿÿÿ8·óíÇÅ1
+N
+java:S1135"2Complete the task associated to this TODO comment.(³ëa8¾óíÇÅ1

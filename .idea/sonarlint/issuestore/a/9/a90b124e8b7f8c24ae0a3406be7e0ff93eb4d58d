@@ -1,12 +1,2 @@
 
-t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ìñ•îùÿÿÿÿ
-A
-java:S1068"&Remove this unused "id" private field.(şÓî«şÿÿÿÿ
->
-java:S1068"(Remove this unused "name" private field.(Ë¥¼
-F
-java:S1068"+Remove this unused "surname" private field.(—‡¨åûÿÿÿÿ
->
-java:S1068"(Remove this unused "mail" private field.(åÊ­’
-J
-java:S1068"/Remove this unused "phoneNumber" private field.(Ôá“ùÿÿÿÿ
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ìñ•îùÿÿÿÿ8ÕÊ×ÇÅ1

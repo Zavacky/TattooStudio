@@ -10,6 +10,8 @@ module com.studio.tattoostudio {
     requires org.kordamp.bootstrapfx.core;
     requires spring.jdbc;
     requires lombok;
+    requires java.sql;
+    requires commons.dbcp2;
 
 
     opens com.studio.tattoostudio to javafx.fxml;
