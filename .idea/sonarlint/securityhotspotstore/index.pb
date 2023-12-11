@@ -23,3 +23,9 @@ j
 :src/main/java/com/studio/tattoostudio/Factory/Factory.java,8\a\8a04f19a9f866a3d130b223054eaa0b006a1c094
 €
 Psrc/main/java/com/studio/tattoostudio/Exceptions/ClientDoesntExistException.java,1\8\18b576e42f587882f8d0a19e2933a44585cc5c2b
+z
+Jsrc/main/java/com/studio/tattoostudio/DaoImpl/PostgresTattooArtistDao.java,0\a\0a68a7613e3de740575009c59eea8f4e26716f3b
+n
+>src/main/java/com/studio/tattoostudio/DAO/TattooArtistDao.java,e\5\e51c88507cd5d08ae42c0d7f45fcc82025a82f4e
+†
+Vsrc/main/java/com/studio/tattoostudio/Exceptions/TattooArtistDoesntExistException.java,9\d\9d4661ae093b6316ad3a9f47bdd69a97664c4948

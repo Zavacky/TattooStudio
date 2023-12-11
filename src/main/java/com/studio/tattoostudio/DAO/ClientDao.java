@@ -5,6 +5,6 @@ import com.studio.tattoostudio.Exceptions.ClientDoesntExistException;
 import com.studio.tattoostudio.Exceptions.IncorrectLoginOrPasswordException;
 
 public interface ClientDao {
-    public Client getByLogin(String login) throws IncorrectLoginOrPasswordException;
-    public Client saveClient(Client client) throws ClientDoesntExistException;
+    Client getByLogin(String login) throws IncorrectLoginOrPasswordException;
+    Client saveClient(Client client) throws ClientDoesntExistException;
 }

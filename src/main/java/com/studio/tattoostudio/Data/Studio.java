@@ -3,6 +3,8 @@ package com.studio.tattoostudio.Data;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 public class Studio {
@@ -12,4 +14,5 @@ public class Studio {
     private String mail;
     private String instagram;
     private String Facebook;
+    private List<TattooArtist> artists;
 }
