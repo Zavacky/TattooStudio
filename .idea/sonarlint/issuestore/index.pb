@@ -29,3 +29,6 @@ n
 >src/main/java/com/studio/tattoostudio/DAO/TattooArtistDao.java,e\5\e51c88507cd5d08ae42c0d7f45fcc82025a82f4e
 †
 Vsrc/main/java/com/studio/tattoostudio/Exceptions/TattooArtistDoesntExistException.java,9\d\9d4661ae093b6316ad3a9f47bdd69a97664c4948
+:
+
+.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
