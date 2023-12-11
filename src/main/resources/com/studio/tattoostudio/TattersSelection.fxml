@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.media.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="219.0" layoutY="25.0" text="Výber tatéra">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="179.0" fitWidth="155.0" layoutX="227.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="187.0" fitWidth="173.0" layoutX="413.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="taterpeterLabel" layoutX="74.0" layoutY="293.0" text="Peter">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Rectangle fx:id="taterpeterRectangle" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="27.0" layoutY="83.0" stroke="BLACK" strokeType="INSIDE" width="155.0" />
+      <Rectangle fx:id="taterferoRectangle" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="227.0" layoutY="83.0" stroke="BLACK" strokeType="INSIDE" width="155.0" />
+      <Rectangle fx:id="tatertimeaRectangle" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="422.0" layoutY="83.0" stroke="BLACK" strokeType="INSIDE" width="155.0" />
+      <Label fx:id="taterferolabel" layoutX="274.0" layoutY="293.0" text="Fero">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Label fx:id="tatertimeaLabel" layoutX="464.0" layoutY="293.0" text="Timea">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

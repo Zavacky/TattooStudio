@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button fx:id="vlastnynavrhButton" layoutX="54.0" layoutY="240.0" mnemonicParsing="false" onAction="#onVlastnyNavrh" text="Mám vlastný návrh">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="vybernavrhButton" layoutX="338.0" layoutY="240.0" mnemonicParsing="false" onAction="#onVyberNavrhu" text="Výber z galérie návrhov">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Line layoutX="300.0" startX="-0.0" startY="400.0" />
+      <TextArea fx:id="vybernavrhTextArea" layoutX="338.0" layoutY="108.0" prefHeight="108.0" prefWidth="235.0" text="&quot;Ešte nemám presnú predstavu&#10;o svojom vysnívanom tetovaní,&#10;Chcel/a by som si pozrieť galériu&#10;pre inšpiráciu." />
+      <TextArea fx:id="vlastnynavrhTextArea" layoutX="40.0" layoutY="119.0" prefHeight="86.0" prefWidth="224.0" text="&quot;Mám už istú predstavu o&#10; svojom novom tetovaní, ktoré&#10; Vám rád bližšie popíšem" />
+   </children>
+</AnchorPane>
