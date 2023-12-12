@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="715.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="215.0" layoutY="55.0" text="Kontaktné údaje">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Label>
+      <Label layoutX="24.0" layoutY="197.0" text="Meno:">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="337.0" layoutY="197.0" text="Priezvisko:">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nameTextField" layoutX="120.0" layoutY="199.0" prefHeight="31.0" prefWidth="202.0" />
+      <TextField fx:id="surnameTextField" layoutX="460.0" layoutY="199.0" />
+      <Label layoutX="24.0" layoutY="254.0" text="Telefón:">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="359.0" layoutY="254.0" text="E-mail:">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="telephoneTextField" layoutX="120.0" layoutY="256.0" prefHeight="31.0" prefWidth="202.0" />
+      <TextField fx:id="emailTextField" layoutX="460.0" layoutY="256.0" />
+      <ComboBox fx:id="purposeComboBox" layoutX="356.0" layoutY="310.0" prefWidth="150.0" />
+      <Label layoutX="175.0" layoutY="308.0" text="Účel tetovania:">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="backButton" layoutX="266.0" layoutY="399.0" mnemonicParsing="false" text="Späť">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="nextButton" layoutX="388.0" layoutY="399.0" mnemonicParsing="false" text="Ďalej">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

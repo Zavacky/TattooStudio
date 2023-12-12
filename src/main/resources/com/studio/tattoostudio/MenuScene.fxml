@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="529.0" prefWidth="762.0" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+  <tabs>
+    <Tab text="Domov">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+      </content>
+    </Tab>
+      <Tab text="O nás">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+        </content>
+      </Tab>
+    <Tab text="Galéria návrhov">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+      </content>
+    </Tab>
+      <Tab text="Tatéri">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <effect>
+                  <Blend />
+               </effect>
+            </AnchorPane>
+        </content>
+      </Tab>
+      <Tab text="Rezervovat si termín">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="147.0" layoutY="192.0" text="Naozaj si chcete rezervovat termín ? ">
+                     <font>
+                        <Font size="29.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="250.0" layoutY="270.0" mnemonicParsing="false" text="Áno">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="403.0" layoutY="270.0" mnemonicParsing="false" text="Nie">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+        </content>
+      </Tab>
+  </tabs>
+</TabPane>
