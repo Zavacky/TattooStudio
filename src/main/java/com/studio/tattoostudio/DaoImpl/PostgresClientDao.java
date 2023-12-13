@@ -12,7 +12,6 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import java.sql.*;
 import java.util.Objects;
 
-//TODO set queries for login
 public class PostgresClientDao implements ClientDao {
     private JdbcTemplate jdbcTemplate;
 
@@ -45,7 +44,7 @@ public class PostgresClientDao implements ClientDao {
     @Override
     public Client saveClient(Client client) throws ClientDoesntExistException {
         Objects.requireNonNull(client, "Client can't be null");
-        if (client.getId() == null){
+        if (client.getLogin() == null){
             String statement = "INSERT INTO client (loginClient, passwordClient, name, surname, email, phone_number) " +
                     "VALUES (?,?,?,?,?,?)";
             GeneratedKeyHolder keyHolder = new GeneratedKeyHolder();
@@ -66,13 +65,13 @@ public class PostgresClientDao implements ClientDao {
             savedClient.setId(id);
             return savedClient;
         }else {
-            String statement = "UPDATE student SET name=?, surname=?, email=?, phone_number=? " +
-                    "WHERE id = ?";
+            String statement = "UPDATE client SET name=?, surname=?, email=?, phone_number=? " +
+                    "WHERE loginclient = ?";
             int count = jdbcTemplate.update(statement, client.getName(),
                     client.getSurname(),
                     client.getMail(),
                     client.getPhoneNumber(),
-                    client.getId());
+                    client.getLogin());
 
             if (count == 0){
                 throw new ClientDoesntExistException();
