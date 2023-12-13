@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.media.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.effect.*?>
@@ -7,22 +9,58 @@
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="529.0" prefWidth="762.0" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="605.0" prefWidth="852.0" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
   <tabs>
     <Tab text="Domov">
       <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Button layoutX="511.0" layoutY="424.0" mnemonicParsing="false" text="Rezervovat si termín">
+                     <font>
+                        <Font size="27.0" />
+                     </font>
+                  </Button>
+               </children></AnchorPane>
       </content>
     </Tab>
       <Tab text="O nás">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="642.0" prefWidth="946.0">
+               <children>
+                  <Label layoutX="128.0" layoutY="81.0" />
+                  <Text layoutX="46.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vznik štúdia IVAN TATOO sa traduje do roku 1995, kedy sa zakladateľ, Ivan Vymazal, začal venovať tetovaniu a životnému štýlu s ním spojeným. &#10;V tých časoch ešte netušil, že jeho hoby sa stane jeho živobytím. &#10;Prvé začiatky boli ťažké a rôzne, určite ich s dnešnou kvalitou ponúkaných služieb a ani priestorov nie je možné porovnávať.&#10;" wrappingWidth="379.822265625">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Text>
+                  <ImageView fitHeight="239.0" fitWidth="346.0" layoutX="46.0" layoutY="277.0" pickOnBounds="true" preserveRatio="true" />
+                  <Pagination fx:id="aboutusphotosPagination" layoutX="487.0" layoutY="40.0" maxPageIndicatorCount="5" pageCount="5" prefHeight="252.0" prefWidth="320.0" />
+                  <Text layoutX="426.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rok 2007 je prelomový - vzniká IVANTATOO, Ivanove vlastné tetovacie štúdio v Košiciach, kde so spolupracujúcimi tetérmi (áno, aj s Markom) začínajú budovať značku a brand. &#10;Zúčastňujú sa súťaží, vyhrávajú a do Košíc prinášajú cenné trofeje. &#10;Nie len Ivan, ale aj Patrik, Marko, Pepo, Alex a iní tetéri, ktorý sa v štúdiu vystriedali.&#10;" wrappingWidth="409.8779296875">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
         </content>
       </Tab>
     <Tab text="Galéria návrhov">
-      <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-      </content>
+         <content>
+            <ScrollPane prefHeight="200.0" prefWidth="200.0">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="779.0" prefWidth="855.0">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="49.0" layoutY="86.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="328.0" layoutY="86.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="589.0" layoutY="86.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="49.0" layoutY="330.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="328.0" layoutY="338.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="589.0" layoutY="338.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
+         </content>
     </Tab>
       <Tab text="Tatéri">
         <content>
@@ -30,28 +68,30 @@
                <effect>
                   <Blend />
                </effect>
-            </AnchorPane>
-        </content>
-      </Tab>
-      <Tab text="Rezervovat si termín">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <Label layoutX="147.0" layoutY="192.0" text="Naozaj si chcete rezervovat termín ? ">
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="273.0" layoutX="63.0" layoutY="136.0" stroke="BLACK" strokeType="INSIDE" width="206.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="273.0" layoutX="323.0" layoutY="136.0" stroke="BLACK" strokeType="INSIDE" width="206.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="273.0" layoutX="581.0" layoutY="136.0" stroke="BLACK" strokeType="INSIDE" width="206.0" />
+                  <Button fx:id="peterButton" layoutX="118.0" layoutY="438.0" mnemonicParsing="false" onAction="#onClick" text="Peter">
                      <font>
-                        <Font size="29.0" />
+                        <Font size="26.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="feroButton" layoutX="378.0" layoutY="438.0" mnemonicParsing="false" onAction="#onClick" text="Fero">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="timeaButton" layoutX="641.0" layoutY="438.0" mnemonicParsing="false" onAction="#onClick" text="Timea">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="250.0" layoutY="49.0" text="Výber naších tatérov">
+                     <font>
+                        <Font size="39.0" />
                      </font>
                   </Label>
-                  <Button layoutX="250.0" layoutY="270.0" mnemonicParsing="false" text="Áno">
-                     <font>
-                        <Font size="26.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="403.0" layoutY="270.0" mnemonicParsing="false" text="Nie">
-                     <font>
-                        <Font size="26.0" />
-                     </font>
-                  </Button>
                </children>
             </AnchorPane>
         </content>
