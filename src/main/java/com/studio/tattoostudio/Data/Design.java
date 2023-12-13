@@ -7,7 +7,6 @@ import lombok.Data;
 @AllArgsConstructor
 public class Design {
     private Long id;
-    private TattooArtist artist;
     private String pictureOfDesign;
     private int price;
     private String description;
