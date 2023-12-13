@@ -16,6 +16,6 @@ module com.studio.tattoostudio {
 
     opens com.studio.tattoostudio to javafx.fxml;
     exports com.studio.tattoostudio;
-    exports com.studio.tattoostudio.Controllers;
-    opens com.studio.tattoostudio.Controllers to javafx.fxml;
+    exports com.studio.tattoostudio.controllers;
+    opens com.studio.tattoostudio.controllers to javafx.fxml;
 }

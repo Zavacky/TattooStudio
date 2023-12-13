@@ -1,8 +1,8 @@
 package com.studio.tattoostudio.DaoImpl;
 
-import com.studio.tattoostudio.DAO.TattooArtistDao;
-import com.studio.tattoostudio.Data.TattooArtist;
-import com.studio.tattoostudio.Exceptions.TattooArtistDoesntExistException;
+import com.studio.tattoostudio.dao.TattooArtistDao;
+import com.studio.tattoostudio.data.TattooArtist;
+import com.studio.tattoostudio.exceptions.TattooArtistDoesntExistException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.RowMapper;

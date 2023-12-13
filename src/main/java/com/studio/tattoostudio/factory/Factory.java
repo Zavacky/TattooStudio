@@ -1,6 +1,6 @@
-package com.studio.tattoostudio.Factory;
+package com.studio.tattoostudio.factory;
 
-import com.studio.tattoostudio.DAO.*;
+import com.studio.tattoostudio.dao.*;
 import com.studio.tattoostudio.DaoImpl.PostgresClientDao;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.jdbc.core.JdbcTemplate;

@@ -1,8 +1,8 @@
-package com.studio.tattoostudio.DAO;
+package com.studio.tattoostudio.dao;
 
-import com.studio.tattoostudio.Data.Client;
-import com.studio.tattoostudio.Exceptions.ClientDoesntExistException;
-import com.studio.tattoostudio.Exceptions.IncorrectLoginOrPasswordException;
+import com.studio.tattoostudio.data.Client;
+import com.studio.tattoostudio.exceptions.ClientDoesntExistException;
+import com.studio.tattoostudio.exceptions.IncorrectLoginOrPasswordException;
 
 public interface ClientDao {
     Client getByLogin(String login) throws IncorrectLoginOrPasswordException;

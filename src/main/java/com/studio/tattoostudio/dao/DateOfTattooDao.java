@@ -1,6 +1,6 @@
-package com.studio.tattoostudio.DAO;
+package com.studio.tattoostudio.dao;
 
-import com.studio.tattoostudio.Data.DateOfTattoo;
+import com.studio.tattoostudio.data.DateOfTattoo;
 
 import java.util.List;
 

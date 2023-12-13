@@ -1,11 +1,8 @@
-package com.studio.tattoostudio.DAO;
+package com.studio.tattoostudio.dao;
 
-import com.studio.tattoostudio.Data.TattooArtist;
-import com.studio.tattoostudio.Exceptions.TattooArtistDoesntExistException;
-import org.springframework.jdbc.core.JdbcTemplate;
+import com.studio.tattoostudio.data.TattooArtist;
 
 import java.util.List;
-import java.util.Objects;
 
 public interface TattooArtistDao {
     TattooArtist getByLogin(String login);

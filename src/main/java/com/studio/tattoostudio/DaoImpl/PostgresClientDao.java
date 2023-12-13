@@ -1,18 +1,15 @@
-package com.studio.tattoostudio.DaoImpl;
+package com.studio.tattoostudio.daoImpl;
 
-import com.studio.tattoostudio.DAO.ClientDao;
-import com.studio.tattoostudio.Data.Client;
-import com.studio.tattoostudio.Exceptions.ClientDoesntExistException;
-import com.studio.tattoostudio.Exceptions.IncorrectLoginOrPasswordException;
-import org.springframework.jdbc.IncorrectResultSetColumnCountException;
+import com.studio.tattoostudio.dao.ClientDao;
+import com.studio.tattoostudio.data.Client;
+import com.studio.tattoostudio.exceptions.ClientDoesntExistException;
+import com.studio.tattoostudio.exceptions.IncorrectLoginOrPasswordException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 //TODO set queries for login
@@ -49,8 +46,8 @@ public class PostgresClientDao implements ClientDao {
     public Client saveClient(Client client) throws ClientDoesntExistException {
         Objects.requireNonNull(client, "Client can't be null");
         if (client.getId() == null){
-            String statement = "INSERT INTO client (name, surname, email, phone_number) " +
-                    "VALUES (?,?,?,?)";
+            String statement = "INSERT INTO client (loginClient, passwordClient, name, surname, email, phone_number) " +
+                    "VALUES (?,?,?,?,?,?)";
             GeneratedKeyHolder keyHolder = new GeneratedKeyHolder();
             jdbcTemplate.update(new PreparedStatementCreator(){
                 @Override
@@ -83,5 +80,4 @@ public class PostgresClientDao implements ClientDao {
             return client;
         }
     }
-
 }

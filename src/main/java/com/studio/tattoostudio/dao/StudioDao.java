@@ -1,6 +1,6 @@
-package com.studio.tattoostudio.DAO;
+package com.studio.tattoostudio.dao;
 
-import com.studio.tattoostudio.Data.Studio;
+import com.studio.tattoostudio.data.Studio;
 
 import java.util.List;
 
