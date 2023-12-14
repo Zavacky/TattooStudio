@@ -28,8 +28,9 @@ public class TattooArtist {
         this.phoneNumber = phoneNumber;
     }
 
-    public TattooArtist(Long id, String name, String specialization, String mail, String phoneNumber) {
+    public TattooArtist(Long id, String login, String name, String specialization, String mail, String phoneNumber) {
         this.id = id;
+        this.login = login;
         this.name = name;
         this.specialization = specialization;
         this.mail = mail;
@@ -37,6 +38,6 @@ public class TattooArtist {
     }
 
     public static TattooArtist clone(TattooArtist artist) {
-        return new TattooArtist(artist.getId(), artist.getName(), artist.getSpecialization(), artist.getMail(), artist.getPhoneNumber());
+        return new TattooArtist(artist.getId(), artist.getLogin(), artist.getName(), artist.getSpecialization(), artist.getMail(), artist.getPhoneNumber());
     }
 }

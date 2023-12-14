@@ -18,30 +18,38 @@ public class PostgresTattooArtistDao implements TattooArtistDao {
 //  private DesignDao designDao = Factory.INSTANCE.getDesignDao;
 //  private DateOfTattooDao DateOfTattooDao = Factory.INSTANCE.getDateOfTattooDao;
 
+
+    public PostgresTattooArtistDao(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
+
     private RowMapper<TattooArtist> tattooArtistRowMapper(){
         return new RowMapper<TattooArtist>() {
             @Override
             public TattooArtist mapRow(ResultSet rs, int rowNum) throws SQLException {
                 Long id = rs.getLong("idArtist");
+                String login = rs.getString("login");
                 String name = rs.getString("name");
                 String specialization = rs.getString("specialization");
                 String mail = rs.getString("email");
                 String phone = rs.getString("phone_number");
 
-                return new TattooArtist(id, name, specialization, mail, phone);
+                return new TattooArtist(id, login, name, specialization, mail, phone);
             }
         };
     }
 
     @Override
     public TattooArtist getByLogin(String login) {
-        String statement = "SELECT * FROM tattoo_artist " +
+        String statement = "SELECT idArtist, loginArtist, name, specialization, email, phone_number FROM tattoo_artist " +
                 "WHERE login = " + login;
         return jdbcTemplate.queryForObject(statement, tattooArtistRowMapper());
     }
 
     @Override
     public List<TattooArtist> getAllByStudio(Long idStudio) {
-        return null;
+        String statement = "SELECT idArtist, loginArtist, name, specialization, email, phone_number " +
+                "WHERE idSalon = " + idStudio;
+        return jdbcTemplate.query(statement, tattooArtistRowMapper());
     }
 }
