@@ -12,6 +12,7 @@ module com.studio.tattoostudio {
     requires lombok;
     requires java.sql;
     requires commons.dbcp2;
+    requires java.desktop;
 
 
     opens com.studio.tattoostudio to javafx.fxml;
