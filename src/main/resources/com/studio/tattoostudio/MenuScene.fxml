@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.media.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.effect.*?>
@@ -16,7 +17,27 @@
     </Tab>
       <Tab text="O nás">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Text layoutX="43.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vznik štúdia IVAN TATOO sa traduje do roku 1995, kedy sa zakladateľ, Ivan Vymazal, začal venovať tetovaniu a životnému štýlu s ním spojeným. V tých časoch ešte netušil, že jeho hoby sa stane jeho živobytím. Prvé začiatky boli ťažké a rôzne, určite ich s dnešnou kvalitou ponúkaných služieb a ani priestorov nie je možné porovnávať." wrappingWidth="340.19970703125">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Text>
+                  <MediaView fitHeight="200.0" fitWidth="200.0" layoutX="487.0" layoutY="32.0" />
+                  <Pagination fx:id="oldphotosPagination" layoutX="435.0" layoutY="33.0" maxPageIndicatorCount="5" pageCount="5" prefHeight="198.0" prefWidth="274.0" />
+                  <ImageView fitHeight="196.0" fitWidth="308.0" layoutX="43.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true" />
+                  <Text layoutX="408.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rok 2007 je prelomový - vzniká IVANTATOO, Ivanove vlastné tetovacie štúdio v Košiciach, kde so spolupracujúcimi tetérmi (áno, aj s Markom) začínajú budovať značku a brand. Zúčastňujú sa súťaží, vyhrávajú a do Košíc prinášajú cenné trofeje. Nie len Ivan, ale aj Patrik, Marko, Pepo, Alex a iní tetéri, ktorý sa v štúdiu vystriedali." wrappingWidth="308.8779296875">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Text>
+                  <Label layoutX="43.0" layoutY="25.0" text="Niečo málo o nás">
+                     <font>
+                        <Font name="System Bold" size="26.0" />
+                     </font>
+                  </Label>
+               </children></AnchorPane>
         </content>
       </Tab>
     <Tab text="Galéria návrhov">
@@ -24,14 +45,10 @@
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
       </content>
     </Tab>
-      <Tab text="Tatéri">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <effect>
-                  <Blend />
-               </effect>
-            </AnchorPane>
-        </content>
+      <Tab text="Salóny">
+         <content>
+            <ChoiceBox prefHeight="31.0" prefWidth="848.0" />
+         </content>
       </Tab>
       <Tab text="Rezervovat si termín">
         <content>
