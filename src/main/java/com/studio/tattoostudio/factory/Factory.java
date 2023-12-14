@@ -2,6 +2,8 @@ package com.studio.tattoostudio.factory;
 
 import com.studio.tattoostudio.dao.*;
 import com.studio.tattoostudio.daoImpl.PostgresClientDao;
+import com.studio.tattoostudio.daoImpl.PostgresDesignDao;
+import com.studio.tattoostudio.daoImpl.PostgresStudioDao;
 import com.studio.tattoostudio.daoImpl.PostgresTattooArtistDao;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -40,5 +42,19 @@ public enum Factory {
             tattooArtistDao = new PostgresTattooArtistDao(jdbcTemplate);
         }
         return tattooArtistDao;
+    }
+
+    public StudioDao getStudioDao(){
+        if (studioDao == null){
+            studioDao = new PostgresStudioDao(jdbcTemplate);
+        }
+        return studioDao;
+    }
+
+    public DesignDao getDesignDao(){
+        if (designDao == null){
+            designDao = new PostgresDesignDao(jdbcTemplate);
+        }
+        return designDao;
     }
 }

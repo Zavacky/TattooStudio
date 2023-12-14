@@ -9,4 +9,5 @@ public interface DateOfTattooDao {
     List<DateOfTattoo> getAllByArtist(String artistLogin);
     List<DateOfTattoo> getAllByClient(String clientLogin);
     DateOfTattoo save(DateOfTattoo dateOfTattoo);
+    void delete(long idDate);
 }
