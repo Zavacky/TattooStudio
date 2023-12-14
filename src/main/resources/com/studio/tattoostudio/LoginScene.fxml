@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
@@ -7,7 +8,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="405.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="182.0" layoutY="56.0" text="Tattoo Studio Login">
          <font>
@@ -44,5 +45,11 @@
             <Image url="@../../../../../../imgs/tattoo_logo.jpg" />
          </image>
       </ImageView>
+      <ComboBox fx:id="clientoradminComboBox" layoutX="157.0" layoutY="107.0" prefHeight="31.0" prefWidth="74.0" />
+      <Label layoutX="65.0" layoutY="109.0" text="Login as:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
 </Pane>
