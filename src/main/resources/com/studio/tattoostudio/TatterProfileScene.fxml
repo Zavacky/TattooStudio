@@ -6,7 +6,6 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="844.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="24.0" layoutY="386.0" text="Facebook">
@@ -38,11 +37,6 @@
       <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="596.0" prefWidth="227.0">
          <children>
             <Circle fill="DODGERBLUE" layoutX="120.0" layoutY="116.0" radius="102.0" stroke="BLACK" strokeType="INSIDE" />
-            <Label layoutX="69.0" layoutY="218.0" text="Meno">
-               <font>
-                  <Font size="29.0" />
-               </font>
-            </Label>
             <Label layoutX="13.0" layoutY="275.0" text="Tel. číslo: 0949282796">
                <font>
                   <Font size="22.0" />
@@ -63,6 +57,11 @@
                   <Font size="22.0" />
                </font>
             </Label>
+            <Button layoutX="6.0" layoutY="539.0" mnemonicParsing="false" text="Zarezervuj si ma">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
       <Line endX="600.0" layoutX="-2.0" layoutY="285.0" rotate="90.0" startX="-100.0" />
