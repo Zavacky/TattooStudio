@@ -5,10 +5,9 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="465.0" prefWidth="661.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button fx:id="choosefromgalleryButton" layoutX="72.0" layoutY="324.0" mnemonicParsing="false" onAction="#onChoosefromgallery" text="⨁ Výber z galérie">
+      <Button fx:id="choosefromgalleryButton" layoutX="72.0" layoutY="339.0" mnemonicParsing="false" onAction="#onChoosefromgallery" text="⨁ Výber z galérie">
          <font>
             <Font size="21.0" />
          </font>
@@ -38,20 +37,26 @@
             <Font size="21.0" />
          </font>
       </Label>
-      <CheckBox fx:id="ifcolortattooCheckBox" layoutX="308.0" layoutY="226.0" mnemonicParsing="false" onAction="#onIfcolortattoo" text="Farbené tetovanie">
+      <CheckBox fx:id="ifcolortattooCheckBox" layoutX="310.0" layoutY="214.0" mnemonicParsing="false" onAction="#onIfcolortattoo" text="Farbené tetovanie">
          <font>
             <Font size="21.0" />
          </font>
       </CheckBox>
-      <CheckBox fx:id="ifbwtattooCheckBox" layoutX="308.0" layoutY="268.0" mnemonicParsing="false" onAction="#onIfbwtattoo" text="Čierno-biele tetovanie">
+      <CheckBox fx:id="ifbwtattooCheckBox" layoutX="309.0" layoutY="256.0" mnemonicParsing="false" onAction="#onIfbwtattoo" text="Čierno-biele tetovanie">
          <font>
             <Font size="21.0" />
          </font>
       </CheckBox>
-      <Button fx:id="reservationrequestButton" layoutX="309.0" layoutY="324.0" mnemonicParsing="false" onAction="#onReservationrequest" text="✔ Požiadať o rezerváciu">
+      <Button fx:id="reservationrequestButton" layoutX="384.0" layoutY="398.0" mnemonicParsing="false" onAction="#onReservationrequest" text="✔ Požiadať o rezerváciu">
          <font>
             <Font size="21.0" />
          </font>
       </Button>
+      <Label layoutX="301.0" layoutY="310.0" text="Preferovaný deň tetovania:">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <ChoiceBox layoutX="298.0" layoutY="346.0" prefHeight="31.0" prefWidth="230.0" />
    </children>
 </AnchorPane>

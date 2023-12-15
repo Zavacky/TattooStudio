@@ -13,7 +13,24 @@
   <tabs>
     <Tab text="Domov">
       <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="398.0" layoutY="58.0" text="Ako sa starať o tetovanie:">
+                     <font>
+                        <Font size="28.0" />
+                     </font>
+                  </Label>
+                  <Text layoutX="398.0" layoutY="151.0" stroke="#111010" strokeType="OUTSIDE" strokeWidth="0.0" text="Fóliu, do ktorej je zabalené Vaše nové tetovanie odstráňte na tretí až piaty deň pred spaním a dôkladne umyte antibakteriálnym mydlom. Fóliu odlepte pod teplou vodou (fólia pôjde ťažšie dole, avšak to nie je problém). Po umytí už fóliu nedávajte! Prvé tri dni po odstránení fólie umývajte tetované miesto antibakteriálnym mydlom 3-krát denne." textAlignment="CENTER" wrappingWidth="322.89111328125">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <Label layoutX="27.0" layoutY="58.0" text="Novinky">
+                     <font>
+                        <Font size="28.0" />
+                     </font>
+                  </Label>
+               </children></AnchorPane>
       </content>
     </Tab>
       <Tab text="O nás">
@@ -43,20 +60,32 @@
       </Tab>
     <Tab text="Galéria návrhov">
       <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="557.0" prefWidth="838.0">
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="46.0" layoutY="53.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="281.0" layoutY="53.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="521.0" layoutY="53.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="46.0" layoutY="276.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="281.0" layoutY="276.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="521.0" layoutY="276.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="46.0" layoutY="53.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
                </children></AnchorPane>
       </content>
     </Tab>
       <Tab text="Salóny">
          <content>
-            <ChoiceBox fx:id="whatcityChoiceBox" prefHeight="31.0" prefWidth="848.0" />
+            <AnchorPane prefHeight="696.0" prefWidth="989.0">
+               <children>
+                  <ChoiceBox layoutY="-1.0" prefHeight="31.0" prefWidth="762.0" />
+                  <Label layoutX="304.0" layoutY="64.0" text="Naši Tatéri">
+                     <font>
+                        <Font size="33.0" />
+                     </font>
+                  </Label>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="42.0" layoutY="145.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="288.0" layoutY="145.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="528.0" layoutY="145.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+               </children>
+            </AnchorPane>
          </content>
       </Tab>
       <Tab text="Rezervovat si termín">
