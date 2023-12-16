@@ -12,10 +12,12 @@ module com.studio.tattoostudio {
     requires lombok;
     requires java.sql;
     requires commons.dbcp2;
+    requires java.desktop;
+    requires spring.tx;
 
 
     opens com.studio.tattoostudio to javafx.fxml;
     exports com.studio.tattoostudio;
-    exports com.studio.tattoostudio.Controllers;
-    opens com.studio.tattoostudio.Controllers to javafx.fxml;
+    exports com.studio.tattoostudio.controllers;
+    opens com.studio.tattoostudio.controllers to javafx.fxml;
 }

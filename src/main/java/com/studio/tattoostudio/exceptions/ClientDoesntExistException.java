@@ -1,4 +1,4 @@
-package com.studio.tattoostudio.Exceptions;
+package com.studio.tattoostudio.exceptions;
 
 import java.io.Serial;
 

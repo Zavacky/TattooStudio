@@ -1,4 +1,4 @@
-package com.studio.tattoostudio.Data;
+package com.studio.tattoostudio.data;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
