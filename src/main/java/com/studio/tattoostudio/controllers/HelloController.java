@@ -1,4 +1,4 @@
-package com.studio.tattoostudio.Controllers;
+package com.studio.tattoostudio.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
