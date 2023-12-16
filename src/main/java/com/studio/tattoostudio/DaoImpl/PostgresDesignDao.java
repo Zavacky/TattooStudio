@@ -53,7 +53,7 @@ public class PostgresDesignDao implements DesignDao {
     @Override
     public List<Design> getAllByArtist(String artistLogin) {
         String statement = "SELECT iDesign, picture, price, description FROM free_design " +
-                "WHERE loginArtist = " + artistLogin;
+                "WHERE loginArtist = '" + artistLogin + "'";
         return jdbcTemplate.query(statement, designRowMapper());
     }
 
@@ -105,7 +105,12 @@ public class PostgresDesignDao implements DesignDao {
     }
 
     @Override
-    public void delete(long idDesign) {
-
+    public void delete(long idDesign) throws EntityNotFoundException {
+        String statement = "DELETE FROM free_design WHERE idDesign = ?";
+        int count = jdbcTemplate.update(statement, idDesign);
+        if (count == 0) {
+            throw new EntityNotFoundException(
+                    "Design with id " + idDesign + " does not exist");
+        }
     }
 }

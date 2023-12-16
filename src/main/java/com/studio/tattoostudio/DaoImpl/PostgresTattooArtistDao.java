@@ -12,12 +12,8 @@ import java.sql.*;
 import java.util.List;
 import java.util.Objects;
 
-//TODO implement interface methods
 public class PostgresTattooArtistDao implements TattooArtistDao {
     private JdbcTemplate jdbcTemplate;
-//  private DesignDao designDao = Factory.INSTANCE.getDesignDao;
-//  private DateOfTattooDao DateOfTattooDao = Factory.INSTANCE.getDateOfTattooDao;
-
 
     public PostgresTattooArtistDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
@@ -42,7 +38,7 @@ public class PostgresTattooArtistDao implements TattooArtistDao {
     @Override
     public TattooArtist getByLogin(String login) {
         String statement = "SELECT idArtist, loginArtist, name, specialization, email, phone_number FROM tattoo_artist " +
-                "WHERE login = " + login;
+                "WHERE login = '" + login + "'";
         return jdbcTemplate.queryForObject(statement, tattooArtistRowMapper());
     }
 
