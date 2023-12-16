@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="401.0" prefWidth="599.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+  <content>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="712.0" prefWidth="596.0">
+         <children>
+            <ImageView fx:id="design1ImageView" fitHeight="270.0" fitWidth="185.0" layoutX="198.0" layoutY="-22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../imgs/design1.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="design2ImageView" fitHeight="181.0" fitWidth="182.0" layoutX="199.0" layoutY="248.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../imgs/design2.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="design3ImageView" fitHeight="191.0" fitWidth="253.0" layoutX="222.0" layoutY="429.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../imgs/design3.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="design4ImageView" fitHeight="294.0" fitWidth="168.0" layoutX="221.0" layoutY="620.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../imgs/design4.jpg" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
+  </content>
+</ScrollPane>
