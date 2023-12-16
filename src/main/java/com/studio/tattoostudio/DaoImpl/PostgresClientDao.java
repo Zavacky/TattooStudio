@@ -37,7 +37,7 @@ public class PostgresClientDao implements ClientDao {
     @Override
     public Client getByLogin(String login) throws IncorrectLoginOrPasswordException {
         String statement = "SELECT * FROM client " +
-                "WHERE login = " + login;
+                "WHERE login = '" + login + "'";
         return jdbcTemplate.queryForObject(statement, clientRowMapper());
     }
 

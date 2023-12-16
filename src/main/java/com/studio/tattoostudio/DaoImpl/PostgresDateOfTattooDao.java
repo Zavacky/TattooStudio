@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-//TODO implement methods
+
 public class PostgresDateOfTattooDao implements DateOfTattooDao {
 
     private JdbcTemplate jdbcTemplate;
@@ -31,8 +31,8 @@ public class PostgresDateOfTattooDao implements DateOfTattooDao {
 
     @Override
     public List<DateOfTattoo> getAllByArtist(String artistLogin) {
-        String statement = "SELECT idDate, loginClient, idDesign, date, time, description FROM tattoo_date" +
-                "WHERE loginArtist = " + artistLogin;
+        String statement = "SELECT idDate, loginClient, idDesign, date, time, description FROM tattoo_date " +
+                "WHERE loginArtist = '" + artistLogin + "'";
 
         return jdbcTemplate.query(statement, new ResultSetExtractor<>() {
             @Override
@@ -65,8 +65,8 @@ public class PostgresDateOfTattooDao implements DateOfTattooDao {
 
     @Override
     public List<DateOfTattoo> getAllByClient(String clientLogin) {
-        String statement = "SELECT idDate, loginArtist, idDesign, date, time, description FROM tattoo_date" +
-                "WHERE loginArtist = " + clientLogin;
+        String statement = "SELECT idDate, loginArtist, idDesign, date, time, description FROM tattoo_date " +
+                "WHERE loginClient = '" + clientLogin + "'";
 
         return jdbcTemplate.query(statement, new ResultSetExtractor<>() {
             @Override
@@ -97,7 +97,7 @@ public class PostgresDateOfTattooDao implements DateOfTattooDao {
     public DateOfTattoo save(DateOfTattoo dateOfTattoo) {
         Objects.requireNonNull(dateOfTattoo);
         if (dateOfTattoo.getId() == null) {
-            String statement = "INSERT INTO tattoo_date (loginClient, loginArtist, idDesign, date, time, description)" +
+            String statement = "INSERT INTO tattoo_date (loginClient, loginArtist, idDesign, date, time, description) " +
                     "VALUES (?, ?, ?, ?, ?, ?)";
             GeneratedKeyHolder keyHolder = new GeneratedKeyHolder();
             jdbcTemplate.update(statement, new PreparedStatementCreator() {

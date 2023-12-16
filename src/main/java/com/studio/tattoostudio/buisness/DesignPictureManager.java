@@ -7,6 +7,12 @@ import java.awt.image.BufferedImage;
 import java.io.*;
 
 public class DesignPictureManager {
+    /**
+     * Converts byte array to picture
+     * @author Martin Zavacky
+     * @param bytePicture
+     * @param nameOfPicture
+     */
     public void convertToPicture(byte[] bytePicture, String nameOfPicture){
         try {
             InputStream inputStream = new ByteArrayInputStream(bytePicture);
@@ -21,6 +27,12 @@ public class DesignPictureManager {
         }
     }
 
+    /**
+     * Converts picture to byte array
+     * @author Martin Zavacky
+     * @param picturePath
+     * @return
+     */
     public byte[] convertToBytes(String picturePath){
         File image = new File(picturePath);
         FileInputStream fis = null;

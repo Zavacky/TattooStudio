@@ -12,7 +12,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-//TODO implement methods
 public class PostgresStudioDao implements StudioDao {
     private JdbcTemplate jdbcTemplate;
     private TattooArtistDao tattooArtistDao = Factory.INSTANCE.getTattooArtistDao();
