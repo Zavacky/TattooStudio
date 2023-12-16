@@ -28,4 +28,9 @@ public class DateOfTattoo {
         this.dateTime = dateTime;
         this.notes = notes;
     }
+
+    public static DateOfTattoo clone(DateOfTattoo dateOfTattoo) {
+        return new DateOfTattoo(dateOfTattoo.getId(), dateOfTattoo.getClient(), dateOfTattoo.getDesign(), dateOfTattoo.getDateTime(), dateOfTattoo.getNotes());
+
+    }
 }

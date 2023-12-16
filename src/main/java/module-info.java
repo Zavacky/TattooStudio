@@ -13,6 +13,7 @@ module com.studio.tattoostudio {
     requires java.sql;
     requires commons.dbcp2;
     requires java.desktop;
+    requires spring.tx;
 
 
     opens com.studio.tattoostudio to javafx.fxml;
