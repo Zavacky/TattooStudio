@@ -27,17 +27,17 @@
       </Label>
       <TextField fx:id="loginTextField" layoutX="157.0" layoutY="164.0" />
       <PasswordField fx:id="passwordTextfield" layoutX="157.0" layoutY="215.0" />
-      <Button fx:id="loginButton" layoutX="149.0" layoutY="283.0" mnemonicParsing="false" onAction="#onLogin" text="Login">
+      <Button fx:id="loginButton" layoutX="149.0" layoutY="283.0" mnemonicParsing="false" onAction="#onLoginUser" text="Login">
          <font>
             <Font size="17.0" />
          </font>
       </Button>
-      <Button fx:id="registerButton" layoutX="257.0" layoutY="283.0" mnemonicParsing="false" onAction="#onRegister" text="Register">
+      <Button fx:id="registerButton" layoutX="257.0" layoutY="283.0" mnemonicParsing="false" onAction="#onRegisterUser" text="Register">
          <font>
             <Font size="17.0" />
          </font>
       </Button>
-      <ImageView fx:id="logoImageview" fitHeight="206.0" fitWidth="193.0" layoutX="378.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="logoImageview" fitHeight="206.0" fitWidth="193.0" layoutX="407.0" layoutY="123.0" pickOnBounds="true" preserveRatio="true">
          <effect>
             <ColorAdjust />
          </effect>
@@ -45,11 +45,12 @@
             <Image url="@../../../../../../imgs/tattoo_logo.jpg" />
          </image>
       </ImageView>
-      <ComboBox fx:id="clientoradminComboBox" layoutX="157.0" layoutY="107.0" prefHeight="31.0" prefWidth="74.0" />
+      <ComboBox fx:id="clientoradminComboBox" layoutX="157.0" layoutY="107.0" onAction="#onChooseUser" prefHeight="31.0" prefWidth="74.0" />
       <Label layoutX="65.0" layoutY="109.0" text="Login as:">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
+      <CheckBox fx:id="VisibilityCheckBox" layoutX="361.0" layoutY="220.0" mnemonicParsing="false" onAction="#onVisibleCheck" />
    </children>
 </Pane>

@@ -2,7 +2,6 @@ package com.studio.tattoostudio.factory;
 
 import com.studio.tattoostudio.dao.*;
 import com.studio.tattoostudio.daoImpl.*;
-import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 

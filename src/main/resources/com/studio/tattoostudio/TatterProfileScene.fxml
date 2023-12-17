@@ -57,7 +57,7 @@
                   <Font size="22.0" />
                </font>
             </Label>
-            <Button layoutX="6.0" layoutY="539.0" mnemonicParsing="false" text="Zarezervuj si ma">
+            <Button fx:id="reservationButton" layoutX="6.0" layoutY="539.0" mnemonicParsing="false" text="Zarezervuj si ma">
                <font>
                   <Font size="27.0" />
                </font>

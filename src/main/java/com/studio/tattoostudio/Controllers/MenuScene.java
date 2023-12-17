@@ -17,7 +17,6 @@ public class MenuScene implements Initializable{
         @FXML
         private ChoiceBox<String> whatcityChoiceBox;
 
-        public void ini
 
         @Override
         public void initialize(URL url, ResourceBundle resourceBundle) {

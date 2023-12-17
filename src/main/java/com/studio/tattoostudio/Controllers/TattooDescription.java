@@ -4,9 +4,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
-public class TattooDescription {
-    public class PleaseProvideControllerClassName {
 
+    public class TattooDescription {
         @FXML
         private TextArea tattoodescriptionTextArea;
 
@@ -30,9 +29,6 @@ public class TattooDescription {
 
         @FXML
         private CheckBox ifcolortattooCheckBox;
-
-        public PleaseProvideControllerClassName() {
-        }
 
         @FXML
         void onChoosefromgallery(ActionEvent event) {
@@ -58,4 +54,5 @@ public class TattooDescription {
         void onReservationrequest(ActionEvent event) {
 
         }
-}
+
+    }
