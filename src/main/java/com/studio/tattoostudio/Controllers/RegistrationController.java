@@ -1,11 +1,14 @@
 package com.studio.tattoostudio.Controllers;
 
+import com.studio.tattoostudio.Tattoo;
+import com.studio.tattoostudio.data.Client;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -13,45 +16,78 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RegistrationController {
+    @FXML
+    private Button RegisterButton;
 
     @FXML
-    private Label registrationAlert;
+    private PasswordField passwordTextfield;
 
     @FXML
-    private PasswordField confirmPasswordTextField;
+    private PasswordField ConfirmPasswordTextField;
+
+    @FXML
+    private ImageView logoImageview;
+
+    @FXML
+    private Button loginButton;
 
     @FXML
     private TextField loginTextField;
 
     @FXML
-    private PasswordField passwordTextField;
+    void onLoginUser(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(Tattoo.class.getResource("LoginScene.fxml"));
+            LoginSceneController controller = new LoginSceneController();
+            loader.setController(controller);
+            Parent loginScene = loader.load();
+            Scene scene = new Scene(loginScene);
 
-    @FXML
-    private Button registerButton;
-
-
-
-    @FXML
-    void onRegister(ActionEvent event) {
-        String username = loginTextField.getText();
-        String password = passwordTextField.getText();
-        String confirmPassword = confirmPasswordTextField.getText();
-
-        if (isValidUsername(username) && isValidPassword(password) && password.equals(confirmPassword)) {
-            // Implement your registration logic here
-            // For example, adding a new user to the database
-
-            registrationAlert.setText("Registration successful for username: " + username);
-        } else {
-            // Handle registration failure
-            registrationAlert.setText("Registration failed. Please check your details.");
+            Stage loginStage = (Stage) loginButton.getScene().getWindow();;
+            loginStage.setScene(scene);
+            loginStage.setTitle("Login - TattooStudio");
+            loginStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+
     }
 
-    private boolean isValidUsername(String username) {
-        // Implement your username validation logic here
-        return username != null && !username.trim().isEmpty();
+    @FXML
+    void onCreateUser(ActionEvent event) {
+        String username = loginTextField.getText();
+
+
+        try {
+            User newUser = new User();
+            String passw = passwordTextfield.getText();
+            if (passw == null){
+                return;
+            }
+            newUser.(username);
+
+            String conpassw = ConfirmPasswordTextField.getText();
+            if (passw.equals(conpassw)){
+                if (isValidPassword(passw)){
+                    newUser.setPassUser(passw);
+                    Client userDao = DaoFactory.INSTANCE.getUserDao();
+                    if (userDao.add(newUser)){
+                        RegistrationAlert.setText("Account created!");
+                    }else {
+                        RegistrationAlert.setText("Change Username!");
+                    }
+                }else {
+                    RegistrationAlert.setText("Password isnt strong!");
+                }
+            }else {
+                RegistrationAlert.setText("Passwords must be same!");
+            }
+        }catch (EmptyResultDataAccessException e){
+            RegistrationAlert.setText("Registration is incorrect!");
+        }
+
     }
+
 
     private boolean isValidPassword(String password) {
         String regex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{8,}$";
@@ -60,5 +96,4 @@ public class RegistrationController {
         return matcher.matches();
     }
 
-    // Add any additional methods or logic as per your application's requirements
 }

@@ -40,7 +40,7 @@ public class LoginSceneController {
 
     @FXML
     void onLoginUser(ActionEvent event) {
-    
+
     }
 
     @FXML
