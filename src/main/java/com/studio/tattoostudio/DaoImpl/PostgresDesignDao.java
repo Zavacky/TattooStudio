@@ -33,7 +33,7 @@ public class PostgresDesignDao implements DesignDao {
                 long id = rs.getLong("idDesign");
                 String loginArtist = rs.getString("loginArtist");
                 byte[] picture = rs.getBytes("picture");
-                int price = rs.getInt("price");
+                int price = (int) rs.getLong("price");
                 String description = rs.getString("description");
                 return new Design(id, loginArtist, picture, price, description);
             }
@@ -52,15 +52,15 @@ public class PostgresDesignDao implements DesignDao {
 
     @Override
     public List<Design> getAllByArtist(String artistLogin) {
-        String statement = "SELECT iDesign, picture, price, description FROM free_design " +
+        String statement = "SELECT idDesign, loginartist, picture, price, description FROM free_design " +
                 "WHERE loginArtist = '" + artistLogin + "'";
         return jdbcTemplate.query(statement, designRowMapper());
     }
 
     @Override
     public Design getById(Long id) {
-        String statement = "SELECT idDesign, picture, price, description FROM free_design " +
-                "WHERE idArtist = " + id;
+        String statement = "SELECT idDesign, loginartist, picture, price, description FROM free_design " +
+                "WHERE idDesign = " + id;
         return jdbcTemplate.queryForObject(statement, designRowMapper());
     }
 
@@ -85,7 +85,7 @@ public class PostgresDesignDao implements DesignDao {
                     return preparedStatement;
                 }
             }, keyHolder);
-            long idDesign = keyHolder.getKey().longValue();
+            long idDesign = Long.parseLong(keyHolder.getKeyList().get(0).get("idDesign").toString());
             Design savedDesign = Design.clone(design);
             design.setId(idDesign);
             return savedDesign;

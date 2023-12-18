@@ -7,6 +7,7 @@ import com.studio.tattoostudio.data.Design;
 import com.studio.tattoostudio.data.TattooArtist;
 import com.studio.tattoostudio.exceptions.EntityNotFoundException;
 import com.studio.tattoostudio.exceptions.IncorrectLoginOrPasswordException;
+import com.studio.tattoostudio.exceptions.TattooArtistDoesntExistException;
 import com.studio.tattoostudio.factory.Factory;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.*;
@@ -32,7 +33,8 @@ public class PostgresDateOfTattooDao implements DateOfTattooDao {
     @Override
     public List<DateOfTattoo> getAllByArtist(String artistLogin) {
         String statement = "SELECT idDate, loginClient, idDesign, date, time, description FROM tattoo_date " +
-                "WHERE loginArtist = '" + artistLogin + "'";
+                "WHERE loginArtist = '" + artistLogin + "' " +
+                "ORDER BY date, time";
 
         return jdbcTemplate.query(statement, new ResultSetExtractor<>() {
             @Override
@@ -66,7 +68,8 @@ public class PostgresDateOfTattooDao implements DateOfTattooDao {
     @Override
     public List<DateOfTattoo> getAllByClient(String clientLogin) {
         String statement = "SELECT idDate, loginArtist, idDesign, date, time, description FROM tattoo_date " +
-                "WHERE loginClient = '" + clientLogin + "'";
+                "WHERE loginClient = '" + clientLogin + "' " +
+                "ORDER BY date, time";
 
         return jdbcTemplate.query(statement, new ResultSetExtractor<>() {
             @Override
@@ -75,7 +78,11 @@ public class PostgresDateOfTattooDao implements DateOfTattooDao {
                 while (rs.next()) {
                     long id = rs.getLong("idDate");
                     TattooArtist artist;
-                    artist = Factory.INSTANCE.getTattooArtistDao().getByLogin(rs.getString("loginArtist"));
+                    try {
+                        artist = Factory.INSTANCE.getTattooArtistDao().getByLogin(rs.getString("loginArtist"));
+                    } catch (TattooArtistDoesntExistException e) {
+                        throw new RuntimeException(e);
+                    }
                     Design design = Factory.INSTANCE.getDesignDao().getById(rs.getLong("idDesign"));
                     Date date = rs.getDate("date");
                     Time time = rs.getTime("time");
@@ -115,7 +122,7 @@ public class PostgresDateOfTattooDao implements DateOfTattooDao {
                     return ps;
                 }
             }, keyHolder);
-            long id = keyHolder.getKey().longValue();
+            long id = Long.parseLong(keyHolder.getKeyList().get(0).get("idDate").toString());
             DateOfTattoo date = DateOfTattoo.clone(dateOfTattoo);
             date.setId(id);
             return date;

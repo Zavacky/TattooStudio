@@ -29,8 +29,23 @@ public class DateOfTattoo {
         this.notes = notes;
     }
 
+    public DateOfTattoo(Client client, TattooArtist tattooArtist, Design design, LocalDateTime dateTime, String notes) {
+        this.client = client;
+        this.tattooArtist = tattooArtist;
+        this.design = design;
+        this.dateTime = dateTime;
+        this.notes = notes;
+    }
+
     public static DateOfTattoo clone(DateOfTattoo dateOfTattoo) {
         return new DateOfTattoo(dateOfTattoo.getId(), dateOfTattoo.getClient(), dateOfTattoo.getDesign(), dateOfTattoo.getDateTime(), dateOfTattoo.getNotes());
+    }
 
+    @Override
+    public String toString() {
+        return  "tattooArtist: " + tattooArtist +
+                ", design: " + design +
+                ", dateTime: " + dateTime +
+                ", notes: '" + notes + '\'';
     }
 }

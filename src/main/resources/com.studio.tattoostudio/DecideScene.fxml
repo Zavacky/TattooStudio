@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button fx:id="vlastnyNavrhButton" layoutX="62.0" layoutY="240.0" mnemonicParsing="false" onAction="#onVlastnyNavrhButton" text="Mám vlastný návrh">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="vyberNavrhButton" layoutX="338.0" layoutY="240.0" mnemonicParsing="false" onAction="#onVyberNavrhuButton" text="Výber z galérie návrhov">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Line layoutX="300.0" startX="-0.0" startY="400.0" />
+      <Label layoutX="318.0" layoutY="68.0" prefHeight="157.0" prefWidth="274.0" text="&quot;Ešte nemám presnú predstavu o svojom vysnívanom tetovaní. Chcel/a by som si pozrieť galériu pre inšpiráciu.&quot;" wrapText="true">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="42.0" layoutY="76.0" prefHeight="142.0" prefWidth="233.0" text="&quot;Mám už istú predstavu o svojom novom tetovaní, ktoré Vám rád bližšie popíšem.&quot;" wrapText="true">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

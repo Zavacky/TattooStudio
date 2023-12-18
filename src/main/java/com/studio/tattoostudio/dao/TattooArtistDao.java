@@ -1,6 +1,7 @@
 package com.studio.tattoostudio.dao;
 
 import com.studio.tattoostudio.data.TattooArtist;
+import com.studio.tattoostudio.exceptions.TattooArtistDoesntExistException;
 
 import java.util.List;
 
@@ -11,7 +12,7 @@ public interface TattooArtistDao {
      * @param login
      * @return
      */
-    TattooArtist getByLogin(String login);
+    TattooArtist getByLogin(String login) throws TattooArtistDoesntExistException;
 
     /**
      * Method to get all artists by studio

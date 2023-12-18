@@ -15,4 +15,13 @@ public class Studio {
     private String instagram;
     private String Facebook;
     private List<TattooArtist> artists;
+
+    @Override
+    public String toString() {
+        return  "address: " + address +
+                ", phoneNumber: " + phoneNumber +
+                ", mail: " + mail +
+                ", instagram: " + instagram +
+                ", Facebook: " + Facebook;
+    }
 }

@@ -4,6 +4,7 @@ import com.studio.tattoostudio.dao.ClientDao;
 import com.studio.tattoostudio.data.Client;
 import com.studio.tattoostudio.exceptions.ClientDoesntExistException;
 import com.studio.tattoostudio.exceptions.IncorrectLoginOrPasswordException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.RowMapper;
@@ -20,12 +21,14 @@ public class PostgresClientDao implements ClientDao {
             @Override
             public Client mapRow(ResultSet rs, int rowNum) throws SQLException {
                 Long id = rs.getLong("idClient");
+                String login = rs.getString("loginClient");
+                String password = rs.getString("passwordClient");
                 String name = rs.getString("name");
                 String surname = rs.getString("surname");
                 String email = rs.getString("email");
                 String phone = rs.getString("phone_number");
 
-                Client client = new Client(id, name, surname, email, phone);
+                Client client = new Client(id, login, password, name, surname, email, phone);
                 return client;
             }
         };
@@ -37,30 +40,33 @@ public class PostgresClientDao implements ClientDao {
     @Override
     public Client getByLogin(String login) throws IncorrectLoginOrPasswordException {
         String statement = "SELECT * FROM client " +
-                "WHERE login = '" + login + "'";
-        return jdbcTemplate.queryForObject(statement, clientRowMapper());
+                "WHERE loginclient = '" + login + "'";
+        try {
+            return jdbcTemplate.queryForObject(statement, clientRowMapper());
+        }catch (EmptyResultDataAccessException e){
+            throw new IncorrectLoginOrPasswordException();
+        }
     }
 
     @Override
     public Client saveClient(Client client) throws ClientDoesntExistException {
         Objects.requireNonNull(client, "Client can't be null");
-        if (client.getLogin() == null){
+        if (client.getId() == null){
             String statement = "INSERT INTO client (loginClient, passwordClient, name, surname, email, phone_number) " +
                     "VALUES (?,?,?,?,?,?)";
             GeneratedKeyHolder keyHolder = new GeneratedKeyHolder();
-            jdbcTemplate.update(new PreparedStatementCreator(){
-                @Override
-                public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
-                    PreparedStatement statement1 = con.prepareStatement(statement, Statement.RETURN_GENERATED_KEYS);
+            jdbcTemplate.update(con -> {
+                PreparedStatement statement1 = con.prepareStatement(statement, Statement.RETURN_GENERATED_KEYS);
 
-                    statement1.setString(1, client.getName());
-                    statement1.setString(2, client.getSurname());
-                    statement1.setString(3, client.getMail());
-                    statement1.setString(4, client.getPhoneNumber());
-                    return statement1;
-                }
+                statement1.setString(1, client.getLogin());
+                statement1.setString(2, client.getPassword());
+                statement1.setString(3, client.getName());
+                statement1.setString(4, client.getSurname());
+                statement1.setString(5, client.getMail());
+                statement1.setString(6, client.getPhoneNumber());
+                return statement1;
             }, keyHolder);
-            long id = keyHolder.getKey().longValue();
+            long id = Long.parseLong(keyHolder.getKeyList().get(0).get("idClient").toString());
             Client savedClient = Client.clone(client);
             savedClient.setId(id);
             return savedClient;

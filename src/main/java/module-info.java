@@ -15,6 +15,7 @@ module com.studio.tattoostudio {
     requires java.desktop;
     requires spring.tx;
     requires javafx.graphics;
+    requires javafx.swing;
 
 
     opens com.studio.tattoostudio to javafx.fxml;
