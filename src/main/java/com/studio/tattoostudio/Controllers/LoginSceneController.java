@@ -1,5 +1,6 @@
 package com.studio.tattoostudio.Controllers;
 
+import com.studio.tattoostudio.Tattoo;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,7 +13,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class LoginSceneController {
-
     @FXML
     private PasswordField passwordTextfield;
 
@@ -26,7 +26,7 @@ public class LoginSceneController {
     private Button loginButton;
 
     @FXML
-    private ComboBox<?> clientoradminComboBox;
+    private ComboBox<String> clientoradminComboBox;
 
     @FXML
     private CheckBox VisibilityCheckBox;
@@ -35,72 +35,71 @@ public class LoginSceneController {
     private TextField loginTextField;
 
     @FXML
-    void onLoginUser(ActionEvent event) {
+    private TextField VisiblePasswordField;
 
+
+    @FXML
+    void onLoginUser(ActionEvent event) {
+    
     }
 
     @FXML
     void onRegisterUser(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(Tattoo.class.getResource("RegistrationScene.fxml"));
+            RegistrationController controller = new RegistrationController();
+            loader.setController(controller);
+            Parent registerScene = loader.load();
+            Scene scene = new Scene(registerScene);
+            Stage registrationStage = (Stage) registerButton.getScene().getWindow();
+            ;
+            registrationStage.setScene(scene);
+            registrationStage.setTitle("Register - TattooStudio");
+            registrationStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    private void initialize() {
+        // Initialize the ComboBox with two user types
+        clientoradminComboBox.getItems().addAll("Zakaznik", "Tater");
 
+        // Optionally set a default value
+        clientoradminComboBox.getSelectionModel().selectFirst();
     }
 
     @FXML
     void onChooseUser(ActionEvent event) {
+        String selectedUserType = clientoradminComboBox.getValue();
 
+        // Handle the selection
+        if ("Zakaznik".equals(selectedUserType)) {
+            // Logic for when 'Zakaznik' is selected
+            System.out.println("Customer selected");
+        } else if ("Tater".equals(selectedUserType)) {
+            // Logic for when 'Tater' is selected
+            System.out.println("Tattoo Artist selected");
+        } else {
+            // Logic for no selection or unexpected value
+            System.out.println("No valid user type selected");
+        }
     }
 
     @FXML
     void onVisibleCheck(ActionEvent event) {
+        boolean isChecked = VisibilityCheckBox.isSelected();
+        VisiblePasswordField.setVisible(isChecked);
+        VisiblePasswordField.setManaged(isChecked);
+        passwordTextfield.setVisible(!isChecked);
+        passwordTextfield.setManaged(!isChecked);
 
-    }
-
-
-
-
-    @FXML
-    void onLogin(ActionEvent event) {
-        String username = loginTextField.getText();
-        String password = passwordTextfield.getText();
-        String userType = clientoradminComboBox.getSelectionModel().getSelectedItem().toString();
-
-        if (authenticate(username, password, userType)) {
-            loadMenuScene();
+        if (isChecked) {
+            VisiblePasswordField.setText(passwordTextfield.getText());
         } else {
-            System.out.println("Login failed");
+            passwordTextfield.setText(VisiblePasswordField.getText());
         }
     }
 
-    private boolean authenticate(String username, String password, String userType) {
-
-        return "user".equals(username) && "password".equals(password) && userType != null;
-    }
-
-    private void loadMenuScene() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("MenuScene.fxml"));
-            Parent menuScene = loader.load();
-            Stage stage = (Stage) loginButton.getScene().getWindow();
-            stage.setScene(new Scene(menuScene));
-            stage.setTitle("Tattoo Studio Menu");
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    void onRegister(ActionEvent event) {
-
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("RegisterScene.fxml"));
-            Parent registerScene = loader.load();
-            Stage stage = (Stage) registerButton.getScene().getWindow();
-            stage.setScene(new Scene(registerScene));
-            stage.setTitle("Tattoo Studio Registration");
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
 }

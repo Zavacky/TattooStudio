@@ -27,6 +27,7 @@
       </Label>
       <TextField fx:id="loginTextField" layoutX="157.0" layoutY="164.0" />
       <PasswordField fx:id="passwordTextfield" layoutX="157.0" layoutY="215.0" />
+      <TextField fx:id="VisiblePasswordField" layoutX="157.0" layoutY="215.0" />
       <Button fx:id="loginButton" layoutX="149.0" layoutY="283.0" mnemonicParsing="false" onAction="#onLoginUser" text="Login">
          <font>
             <Font size="17.0" />

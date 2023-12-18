@@ -1,5 +1,4 @@
 package com.studio.tattoostudio.Controllers;
-
 import com.studio.tattoostudio.Tattoo;
 import javafx.application.*;
 import javafx.fxml.FXMLLoader;
@@ -11,7 +10,6 @@ public class LoginScene extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         LoginSceneController controller = new LoginSceneController();
-
         FXMLLoader loader = new FXMLLoader(Tattoo.class.getResource("LoginScene.fxml"));
         loader.setController(controller);
         Parent parent = loader.load();
