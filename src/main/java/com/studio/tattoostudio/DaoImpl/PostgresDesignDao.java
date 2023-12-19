@@ -32,8 +32,11 @@ public class PostgresDesignDao implements DesignDao {
             public Design mapRow(ResultSet rs, int rowNum) throws SQLException {
                 long id = rs.getLong("idDesign");
                 String loginArtist = rs.getString("loginArtist");
-                byte[] picture = rs.getBytes("picture");
-                int price = rs.getInt("price");
+                byte[] picture = new byte[0];
+                if(rs.getBytes("picture") != null) {
+                    picture = rs.getBytes("picture");
+                }
+                int price = (int) rs.getLong("price");
                 String description = rs.getString("description");
                 return new Design(id, loginArtist, picture, price, description);
             }
@@ -41,26 +44,16 @@ public class PostgresDesignDao implements DesignDao {
     }
 
     @Override
-    public List<Design> getAllByStudio(Long studioId) {
-        List<TattooArtist> artists = tattooArtistDao.getAllByStudio(studioId);
-        List<Design> designs = new LinkedList<>();
-        for (TattooArtist ta : artists){
-            designs.addAll(this.getAllByArtist(ta.getLogin()));
-        }
-        return designs;
-    }
-
-    @Override
     public List<Design> getAllByArtist(String artistLogin) {
-        String statement = "SELECT iDesign, picture, price, description FROM free_design " +
-                "WHERE loginArtist = " + artistLogin;
+        String statement = "SELECT idDesign, loginartist, picture, price, description FROM free_design " +
+                "WHERE loginArtist = '" + artistLogin + "'";
         return jdbcTemplate.query(statement, designRowMapper());
     }
 
     @Override
     public Design getById(Long id) {
-        String statement = "SELECT idDesign, picture, price, description FROM free_design " +
-                "WHERE idArtist = " + id;
+        String statement = "SELECT idDesign, loginartist, picture, price, description FROM free_design " +
+                "WHERE idDesign = " + id;
         return jdbcTemplate.queryForObject(statement, designRowMapper());
     }
 
@@ -85,7 +78,7 @@ public class PostgresDesignDao implements DesignDao {
                     return preparedStatement;
                 }
             }, keyHolder);
-            long idDesign = keyHolder.getKey().longValue();
+            long idDesign = Long.parseLong(keyHolder.getKeyList().get(0).get("idDesign").toString());
             Design savedDesign = Design.clone(design);
             design.setId(idDesign);
             return savedDesign;
@@ -105,7 +98,12 @@ public class PostgresDesignDao implements DesignDao {
     }
 
     @Override
-    public void delete(long idDesign) {
-
+    public void delete(long idDesign) throws EntityNotFoundException {
+        String statement = "DELETE FROM free_design WHERE idDesign = ?";
+        int count = jdbcTemplate.update(statement, idDesign);
+        if (count == 0) {
+            throw new EntityNotFoundException(
+                    "Design with id " + idDesign + " does not exist");
+        }
     }
 }

@@ -40,4 +40,10 @@ public class TattooArtist {
     public static TattooArtist clone(TattooArtist artist) {
         return new TattooArtist(artist.getId(), artist.getLogin(), artist.getName(), artist.getSpecialization(), artist.getMail(), artist.getPhoneNumber());
     }
+
+    @Override
+    public String toString() {
+        return  "name: " + name +
+                ", specialization: " + specialization;
+    }
 }

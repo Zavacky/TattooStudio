@@ -1,12 +1,15 @@
 package com.studio.tattoostudio.factory;
 
 import com.studio.tattoostudio.dao.*;
-import com.studio.tattoostudio.daoImpl.PostgresClientDao;
-import com.studio.tattoostudio.daoImpl.PostgresDesignDao;
-import com.studio.tattoostudio.daoImpl.PostgresStudioDao;
-import com.studio.tattoostudio.daoImpl.PostgresTattooArtistDao;
+import com.studio.tattoostudio.daoImpl.*;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public enum Factory {
     INSTANCE;
@@ -18,11 +21,11 @@ public enum Factory {
     private TattooArtistDao tattooArtistDao;
     private JdbcTemplate jdbcTemplate;
 
-    private JdbcTemplate getJdbcTemplate(){
-        if (jdbcTemplate == null){
-            BasicDataSource dataSource = new BasicDataSource();
+    private JdbcTemplate getJdbcTemplate() {
+        if (jdbcTemplate == null) {
+           DriverManagerDataSource dataSource = new DriverManagerDataSource();
             dataSource.setDriverClassName("org.postgresql.Driver");
-            dataSource.setUrl("jdbc:postgresql://localhost:5432/your_database");
+            dataSource.setUrl("jdbc:postgresql://localhost:5432/tattoo_studio");
             dataSource.setUsername("postgres");
             dataSource.setPassword("odjednapoosem");
             jdbcTemplate = new JdbcTemplate(dataSource);
@@ -32,29 +35,36 @@ public enum Factory {
 
     public ClientDao getClientDao(){
         if (clientDao == null){
-            clientDao = new PostgresClientDao(jdbcTemplate);
+            clientDao = new PostgresClientDao(getJdbcTemplate());
         }
         return clientDao;
     }
 
     public TattooArtistDao getTattooArtistDao(){
         if (tattooArtistDao == null){
-            tattooArtistDao = new PostgresTattooArtistDao(jdbcTemplate);
+            tattooArtistDao = new PostgresTattooArtistDao(getJdbcTemplate());
         }
         return tattooArtistDao;
     }
 
     public StudioDao getStudioDao(){
         if (studioDao == null){
-            studioDao = new PostgresStudioDao(jdbcTemplate);
+            studioDao = new PostgresStudioDao(getJdbcTemplate());
         }
         return studioDao;
     }
 
     public DesignDao getDesignDao(){
         if (designDao == null){
-            designDao = new PostgresDesignDao(jdbcTemplate);
+            designDao = new PostgresDesignDao(getJdbcTemplate());
         }
         return designDao;
+    }
+
+    public DateOfTattooDao getDateOfTattooDao() {
+        if (dateOfTattooDao == null) {
+            dateOfTattooDao = new PostgresDateOfTattooDao(getJdbcTemplate());
+        }
+        return dateOfTattooDao;
     }
 }

@@ -40,7 +40,24 @@ public class Client {
         this.phoneNumber = phoneNumber;
     }
 
+    public Client(String login, String password, String name, String surname, String mail, String phoneNumber) {
+        this.login = login;
+        this.password = password;
+        this.name = name;
+        this.surname = surname;
+        this.mail = mail;
+        this.phoneNumber = phoneNumber;
+    }
+
     public static Client clone(Client client) {
         return new Client(client.getId(), client.getName(), client.getSurname(), client.getMail(), client.getPhoneNumber());
+    }
+
+    @Override
+    public String toString() {
+        return name + " "
+                + surname +
+                ", " + mail +
+                ", " + phoneNumber;
     }
 }
