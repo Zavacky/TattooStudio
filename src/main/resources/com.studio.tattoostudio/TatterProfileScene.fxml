@@ -26,15 +26,15 @@
             <Font size="29.0" />
          </font>
       </Label>
-      <Line endX="600.0" layoutX="-2.0" layoutY="285.0" rotate="90.0" startX="-100.0" />
+      <Line endX="615.4183959960938" endY="-0.22405552864074707" layoutX="-2.0" layoutY="285.0" rotate="90.0" startX="-100.0" />
       <Label layoutX="487.0" layoutY="14.0" text="Galéria ">
          <font>
             <Font size="37.0" />
          </font>
       </Label>
-      <Button fx:id="reservationButton" layoutX="15.0" layoutY="544.0" mnemonicParsing="false" onAction="#onReservationButton" text="Zarezervuj si ma">
+      <Button fx:id="reservationButton" layoutX="15.0" layoutY="544.0" mnemonicParsing="false" onAction="#onReservationButton" prefHeight="54.0" prefWidth="218.0" text="Rezervovať tattera">
          <font>
-            <Font size="27.0" />
+            <Font size="18.0" />
          </font>
       </Button>
       <GridPane fx:id="designsGridPane" layoutX="262.0" layoutY="77.0" prefHeight="531.0" prefWidth="574.0">

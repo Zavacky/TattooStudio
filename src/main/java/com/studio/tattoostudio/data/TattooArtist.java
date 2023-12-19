@@ -44,7 +44,6 @@ public class TattooArtist {
     @Override
     public String toString() {
         return  "name: " + name +
-                ", specialization: " + specialization +
-                ", phoneNumber: " + phoneNumber;
+                ", specialization: " + specialization;
     }
 }

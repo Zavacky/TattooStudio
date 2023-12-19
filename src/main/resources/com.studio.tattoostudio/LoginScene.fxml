@@ -5,10 +5,12 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="388.0" prefWidth="554.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="353.0" prefWidth="554.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="182.0" layoutY="56.0" text="Tattoo Studio Login">
          <font>
@@ -53,5 +55,10 @@
             <Font size="14.0" />
          </font>
       </Label>
+      <ImageView fitHeight="128.0" fitWidth="201.0" layoutX="334.0" layoutY="127.0">
+         <image>
+            <Image url="@../Pictures/logo.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>

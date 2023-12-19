@@ -1,5 +1,6 @@
 package com.studio.tattoostudio.controllers;
 
+import com.studio.tattoostudio.TattooStudioApplication;
 import com.studio.tattoostudio.buisness.DesignPictureManager;
 import com.studio.tattoostudio.data.Client;
 import com.studio.tattoostudio.data.Design;
@@ -29,6 +30,7 @@ public class DesignGallerySceneController {
     private ImageView selectedImageView;
     public DesignGallerySceneController(String artist, Client client) {
         this.artist = artist;
+        this.client = client;
     }
     @FXML
     void initialize() {
@@ -63,6 +65,7 @@ public class DesignGallerySceneController {
             Parent tattooDescriptionTattooSceneParent = loader.load();
             Scene tattooDescriptionTattooScene = new Scene(tattooDescriptionTattooSceneParent);
             Stage tattooDescriptionTattooStage = new Stage();
+            tattooDescriptionTattooStage.getIcons().add(new Image(getClass().getResourceAsStream("/Pictures/ikona.jpeg")));
             tattooDescriptionTattooStage.setScene(tattooDescriptionTattooScene);
             tattooDescriptionTattooStage.setResizable(false);
             tattooDescriptionTattooStage.setTitle("Tattoo reservation");

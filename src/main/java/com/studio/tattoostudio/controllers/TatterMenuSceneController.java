@@ -1,5 +1,6 @@
 package com.studio.tattoostudio.controllers;
 
+import com.studio.tattoostudio.TattooStudioApplication;
 import com.studio.tattoostudio.buisness.DesignPictureManager;
 import com.studio.tattoostudio.data.DateOfTattoo;
 import com.studio.tattoostudio.data.Design;
@@ -43,23 +44,14 @@ public class TatterMenuSceneController {
     @FXML
     void initialize() {
         reservationsTableView.setItems(FXCollections.observableList(Factory.INSTANCE.getDateOfTattooDao().getAllByArtist(artist)));
-        List<Design> designs = Factory.INSTANCE.getDesignDao().getAllByArtist(artist);
-        for (int i = 0; i < designs.size(); i++) {
-            Design design = designs.get(i);
-            int row = i / 3;
-            int column = i % 3;
-            Image image = DesignPictureManager.convertToPicture(design.getPicture());
-            ImageView imageView = new ImageView(image);
-            imageView.setOnMouseClicked(event -> setSelectedImageView(imageView));
-            imageView.setId(design.getId().toString());
-            designsGridPane.add(imageView, column, row);
-        }
+        reloadGallery();
     }
 
     @FXML
     void onAddDesignButton(ActionEvent event) {
         NewDesignSceneController controller = new NewDesignSceneController(artist);
         openNewDesignScene(controller);
+        reloadGallery();
     }
 
     @FXML
@@ -74,11 +66,14 @@ public class TatterMenuSceneController {
             selectedImageView.setImage(null);
             selectedImageView = null;
         }
+        reloadGallery();
     }
 
     @FXML
     void onEditReservartionButton(ActionEvent event) {
-
+        EditReservationSceneController controller = new EditReservationSceneController(artist, reservationsTableView.getSelectionModel().getSelectedItem());
+        openEditReservationScene(controller);
+        reservationsTableView.setItems(FXCollections.observableList(Factory.INSTANCE.getDateOfTattooDao().getAllByArtist(artist)));
     }
     private void openNewDesignScene(NewDesignSceneController newDesignSceneController) {
         try {
@@ -87,6 +82,7 @@ public class TatterMenuSceneController {
             Parent parent = fxmlLoader.load();
             Scene scene = new Scene(parent);
             Stage stage = new Stage();
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("/Pictures/ikona.jpeg")));
             stage.setScene(scene);
             stage.setTitle("Tattoo Studio new design");
             stage.initModality(Modality.APPLICATION_MODAL);
@@ -96,13 +92,14 @@ public class TatterMenuSceneController {
         }
     }
 
-    private void openEditReservationScene(NewDesignSceneController newDesignSceneController) {
+    private void openEditReservationScene(EditReservationSceneController editReservationSceneController) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com.studio.tattoostudio/TattooDescriptionScene.fxml"));
-            fxmlLoader.setController(newDesignSceneController);
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com.studio.tattoostudio/EditReservationScene.fxml"));
+            fxmlLoader.setController(editReservationSceneController);
             Parent parent = fxmlLoader.load();
             Scene scene = new Scene(parent);
             Stage stage = new Stage();
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("/Pictures/ikona.jpeg")));
             stage.setScene(scene);
             stage.setTitle("Tattoo Studio edit reservation");
             stage.initModality(Modality.APPLICATION_MODAL);
@@ -114,5 +111,18 @@ public class TatterMenuSceneController {
 
     private void setSelectedImageView(ImageView imageView) {
         this.selectedImageView = imageView;
+    }
+    private void reloadGallery() {
+        List<Design> designs = Factory.INSTANCE.getDesignDao().getAllByArtist(artist);
+        for (int i = 0; i < designs.size(); i++) {
+            Design design = designs.get(i);
+            int row = i / 3;
+            int column = i % 3;
+            Image image = DesignPictureManager.convertToPicture(design.getPicture());
+            ImageView imageView = new ImageView(image);
+            imageView.setOnMouseClicked(event -> setSelectedImageView(imageView));
+            imageView.setId(design.getId().toString());
+            designsGridPane.add(imageView, column, row);
+        }
     }
 }

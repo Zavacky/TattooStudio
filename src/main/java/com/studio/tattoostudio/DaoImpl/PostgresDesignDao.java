@@ -32,22 +32,15 @@ public class PostgresDesignDao implements DesignDao {
             public Design mapRow(ResultSet rs, int rowNum) throws SQLException {
                 long id = rs.getLong("idDesign");
                 String loginArtist = rs.getString("loginArtist");
-                byte[] picture = rs.getBytes("picture");
+                byte[] picture = new byte[0];
+                if(rs.getBytes("picture") != null) {
+                    picture = rs.getBytes("picture");
+                }
                 int price = (int) rs.getLong("price");
                 String description = rs.getString("description");
                 return new Design(id, loginArtist, picture, price, description);
             }
         };
-    }
-
-    @Override
-    public List<Design> getAllByStudio(Long studioId) {
-        List<TattooArtist> artists = tattooArtistDao.getAllByStudio(studioId);
-        List<Design> designs = new LinkedList<>();
-        for (TattooArtist ta : artists){
-            designs.addAll(this.getAllByArtist(ta.getLogin()));
-        }
-        return designs;
     }
 
     @Override

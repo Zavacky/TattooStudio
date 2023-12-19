@@ -1,4 +1,5 @@
 package com.studio.tattoostudio.controllers;
+import com.studio.tattoostudio.TattooStudioApplication;
 import com.studio.tattoostudio.data.Client;
 import com.studio.tattoostudio.data.TattooArtist;
 import com.studio.tattoostudio.exceptions.IncorrectLoginOrPasswordException;
@@ -12,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -122,6 +124,7 @@ public class LoginSceneController {
             Parent parent = fxmlLoader.load();
             Scene scene = new Scene(parent);
             Stage stage = new Stage();
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("/Pictures/ikona.jpeg")));
             stage.setScene(scene);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setTitle("Tattoo Studio registration");
@@ -138,6 +141,7 @@ public class LoginSceneController {
             Parent parent = fxmlLoader.load();
             Scene scene = new Scene(parent);
             Stage stage = new Stage();
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("/Pictures/ikona.jpeg")));
             stage.setScene(scene);
             stage.setTitle("Tattoo Studio menu");
             stage.show();
@@ -154,6 +158,7 @@ public class LoginSceneController {
             Parent parent = fxmlLoader.load();
             Scene scene = new Scene(parent);
             Stage stage = new Stage();
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("/Pictures/ikona.jpeg")));
             stage.setScene(scene);
             stage.setTitle("Tattoo Studio tater menu");
             stage.show();

@@ -8,14 +8,6 @@ import java.util.List;
 public interface DesignDao {
 
     /**
-     * Method to get all designs by studio
-     * @author Martin Zavacky
-     * @param studioId
-     * @return
-     */
-    List<Design> getAllByStudio(Long studioId);
-
-    /**
      * Method to get all designs by artist
      * @author Martin Zavacky
      * @param artistLogin

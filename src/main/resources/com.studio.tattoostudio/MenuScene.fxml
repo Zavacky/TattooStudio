@@ -7,9 +7,9 @@
 <?import javafx.scene.control.Pagination?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.media.MediaView?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -34,6 +34,11 @@
                         <Font size="19.0" />
                      </font>
                   </Text>
+                  <ImageView fitHeight="404.0" fitWidth="290.0" layoutX="36.0" layoutY="82.0">
+                     <image>
+                        <Image url="@../Pictures/hollidays.JPG" />
+                     </image>
+                  </ImageView>
                </children></AnchorPane>
       </content>
     </Tab>
@@ -46,9 +51,7 @@
                         <Font size="16.0" />
                      </font>
                   </Text>
-                  <MediaView fitHeight="200.0" fitWidth="200.0" layoutX="487.0" layoutY="32.0" />
-                  <Pagination fx:id="oldphotosPagination" layoutX="435.0" layoutY="33.0" maxPageIndicatorCount="5" pageCount="5" prefHeight="198.0" prefWidth="274.0" />
-                  <ImageView fitHeight="196.0" fitWidth="308.0" layoutX="43.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true" />
+                  <Pagination fx:id="oldphotosPagination" layoutX="425.0" layoutY="36.0" maxPageIndicatorCount="5" pageCount="5" prefHeight="198.0" prefWidth="274.0" />
                   <Text layoutX="408.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rok 2007 je prelomový - vzniká IVANTATOO, Ivanove vlastné tetovacie štúdio v Košiciach, kde so spolupracujúcimi tetérmi (áno, aj s Markom) začínajú budovať značku a brand. Zúčastňujú sa súťaží, vyhrávajú a do Košíc prinášajú cenné trofeje. Nie len Ivan, ale aj Patrik, Marko, Pepo, Alex a iní tetéri, ktorý sa v štúdiu vystriedali." wrappingWidth="308.8779296875">
                      <font>
                         <Font size="16.0" />
@@ -68,6 +71,7 @@
                <children>
                   <ListView fx:id="datesTableView" layoutX="7.0" layoutY="7.0" prefHeight="449.0" prefWidth="750.0" />
                   <Button fx:id="deleteReservationButton" layoutX="21.0" layoutY="461.0" mnemonicParsing="false" onAction="#onDeleteReservartionButton" text="Delete reservation" />
+                  <Button fx:id="refreshButton" layoutX="664.0" layoutY="461.0" mnemonicParsing="false" onAction="#onRefreshButton" text="Refresh" />
                </children>
             </AnchorPane>
         </content>

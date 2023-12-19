@@ -1,4 +1,5 @@
 package com.studio.tattoostudio.controllers;
+import com.studio.tattoostudio.TattooStudioApplication;
 import com.studio.tattoostudio.buisness.DesignPictureManager;
 import com.studio.tattoostudio.data.Client;
 import com.studio.tattoostudio.data.Design;
@@ -70,6 +71,7 @@ public class TatterProfileSceneController {
         Parent tatterProfileSceneParent = loader.load();
         Scene tatterProfileScene = new Scene(tatterProfileSceneParent);
         Stage tatterProfileStage = new Stage();
+        tatterProfileStage.getIcons().add(new Image(getClass().getResourceAsStream("/Pictures/ikona.jpeg")));
         tatterProfileStage.setScene(tatterProfileScene);
         tatterProfileStage.setResizable(false);
         tatterProfileStage.setTitle("Tattoo date reservartion");

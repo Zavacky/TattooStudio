@@ -3,6 +3,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 @Data
 @AllArgsConstructor
 public class DateOfTattoo {
@@ -43,9 +45,21 @@ public class DateOfTattoo {
 
     @Override
     public String toString() {
-        return  "tattooArtist: " + tattooArtist +
-                ", design: " + design +
-                ", dateTime: " + dateTime +
-                ", notes: '" + notes + '\'';
+        if (dateTime == null) {
+            if (tattooArtist == null) {
+                return  client.getName() +
+                        ", \"" + notes + '\"';
+            }
+            return  tattooArtist.getName() +
+                    ", \"" + notes + '\"';
+        } else if (tattooArtist != null) {
+            return  tattooArtist.getName() +
+                    ", " + dateTime.format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")) +
+                    ",   \"" + notes + '\"';
+        }else {
+            return  client.getName() +
+                    ", " + dateTime.format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")) +
+                    ",   \"" + notes + '\"';
+        }
     }
 }

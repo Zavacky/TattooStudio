@@ -2,7 +2,6 @@ package com.studio.tattoostudio.buisness;
 
 import java.io.*;
 import javafx.scene.image.Image;
-import javafx.scene.image.WritablePixelFormat;
 import javafx.embed.swing.SwingFXUtils;
 
 import javax.imageio.ImageIO;

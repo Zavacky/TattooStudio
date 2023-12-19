@@ -18,9 +18,9 @@ public class Studio {
 
     @Override
     public String toString() {
-        return  "address: " + address +
-                ", phoneNumber: " + phoneNumber +
-                ", mail: " + mail +
+        return  address +
+                ", " + phoneNumber +
+                ", " + mail +
                 ", instagram: " + instagram +
                 ", Facebook: " + Facebook;
     }

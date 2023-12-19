@@ -46,7 +46,7 @@ public class NewDesignSceneController {
         File selectedFile = fileChooser.showOpenDialog(null);
         if (selectedFile != null) {
             // Convert the selected image to a byte array and update the ImageView
-            Image image = new Image(selectedFile.toURI().toString());
+            Image image = new Image(selectedFile.toURI().toString(), 100, 100, true, true);
             this.image = image;
             selectedPicturePane.getChildren().add(new ImageView(image));
         }

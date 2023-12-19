@@ -48,13 +48,18 @@ public class PostgresDateOfTattooDao implements DateOfTattooDao {
                     } catch (IncorrectLoginOrPasswordException e) {
                         throw new RuntimeException(e);
                     }
-                    Design design = Factory.INSTANCE.getDesignDao().getById(rs.getLong("idDesign"));
+                    Design design = null;
+                    if (rs.getLong("idDesign") != 0) {
+                        design = Factory.INSTANCE.getDesignDao().getById(rs.getLong("idDesign"));
+                    }
                     Date date = rs.getDate("date");
                     Time time = rs.getTime("time");
-                    LocalDate localDate = date.toLocalDate();
-                    LocalTime localTime = time.toLocalTime();
-                    LocalDateTime localDateTime = LocalDateTime.of(localDate, localTime);
-
+                    LocalDateTime localDateTime = null;
+                    if (date != null || time != null) {
+                        LocalDate localDate = date.toLocalDate();
+                        LocalTime localTime = time.toLocalTime();
+                        localDateTime= LocalDateTime.of(localDate, localTime);
+                    }
                     String description = rs.getString("description");
 
                     DateOfTattoo dateOfTattoo = new DateOfTattoo(id, client, design, localDateTime, description);
@@ -83,12 +88,18 @@ public class PostgresDateOfTattooDao implements DateOfTattooDao {
                     } catch (TattooArtistDoesntExistException e) {
                         throw new RuntimeException(e);
                     }
-                    Design design = Factory.INSTANCE.getDesignDao().getById(rs.getLong("idDesign"));
+                    Design design = null;
+                    if (rs.getLong("idDesign") != 0) {
+                           design = Factory.INSTANCE.getDesignDao().getById(rs.getLong("idDesign"));
+                    }
                     Date date = rs.getDate("date");
                     Time time = rs.getTime("time");
-                    LocalDate localDate = date.toLocalDate();
-                    LocalTime localTime = time.toLocalTime();
-                    LocalDateTime localDateTime = LocalDateTime.of(localDate, localTime);
+                    LocalDateTime localDateTime = null;
+                    if (date != null || time != null) {
+                        LocalDate localDate = date.toLocalDate();
+                        LocalTime localTime = time.toLocalTime();
+                        localDateTime = LocalDateTime.of(localDate, localTime);
+                    }
 
                     String description = rs.getString("description");
 
@@ -104,23 +115,20 @@ public class PostgresDateOfTattooDao implements DateOfTattooDao {
     public DateOfTattoo save(DateOfTattoo dateOfTattoo) {
         Objects.requireNonNull(dateOfTattoo);
         if (dateOfTattoo.getId() == null) {
-            String statement = "INSERT INTO tattoo_date (loginClient, loginArtist, idDesign, date, time, description) " +
-                    "VALUES (?, ?, ?, ?, ?, ?)";
+            String statement = "INSERT INTO tattoo_date (loginClient, loginArtist, idDesign, description) " +
+                    "VALUES (?, ?, ?, ?)";
             GeneratedKeyHolder keyHolder = new GeneratedKeyHolder();
-            jdbcTemplate.update(statement, new PreparedStatementCreator() {
-
-                @Override
-                public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
-                    PreparedStatement ps = con.prepareStatement(statement, Statement.RETURN_GENERATED_KEYS);
-                    ps.setString(1, dateOfTattoo.getClient().getLogin());
-                    ps.setString(2, dateOfTattoo.getTattooArtist().getLogin());
+            jdbcTemplate.update(con -> {
+                PreparedStatement ps = con.prepareStatement(statement, Statement.RETURN_GENERATED_KEYS);
+                ps.setString(1, dateOfTattoo.getClient().getLogin());
+                ps.setString(2, dateOfTattoo.getTattooArtist().getLogin());
+                if (dateOfTattoo.getDesign() == null) {
+                    ps.setNull(3, Types.INTEGER);
+                }else {
                     ps.setLong(3, dateOfTattoo.getDesign().getId());
-                    ps.setDate(4, Date.valueOf(dateOfTattoo.getDateTime().toLocalDate()));
-                    ps.setTime(5, Time.valueOf(dateOfTattoo.getDateTime().toLocalTime()));
-                    ps.setString(6, dateOfTattoo.getNotes());
-
-                    return ps;
                 }
+                ps.setString(4, dateOfTattoo.getNotes());
+                return ps;
             }, keyHolder);
             long id = Long.parseLong(keyHolder.getKeyList().get(0).get("idDate").toString());
             DateOfTattoo date = DateOfTattoo.clone(dateOfTattoo);

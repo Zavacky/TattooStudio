@@ -1,5 +1,6 @@
 package com.studio.tattoostudio.controllers;
 
+import com.studio.tattoostudio.TattooStudioApplication;
 import com.studio.tattoostudio.data.Client;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -7,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -24,7 +26,7 @@ public class DecideSceneController {
     }
     @FXML
     void onVlastnyNavrhButton(ActionEvent event) {
-        TattooDescriptionController tattooDescriptionController = new TattooDescriptionController();
+        TattooDescriptionController tattooDescriptionController = new TattooDescriptionController(artist, client.getLogin());
         openDescriptionScene(tattooDescriptionController);
     }
 
@@ -41,6 +43,7 @@ public class DecideSceneController {
             Parent tatterProfileSceneParent = fxmlLoader.load();
             Scene tatterProfileScene = new Scene(tatterProfileSceneParent);
             Stage tatterProfileStage = new Stage();
+            tatterProfileStage.getIcons().add(new Image(getClass().getResourceAsStream("/Pictures/ikona.jpeg")));
             tatterProfileStage.setScene(tatterProfileScene);
             tatterProfileStage.setResizable(false);
             tatterProfileStage.setTitle("Tattoo gallery");
@@ -59,6 +62,7 @@ public class DecideSceneController {
             Parent tatterProfileSceneParent = fxmlLoader.load();
             Scene tatterProfileScene = new Scene(tatterProfileSceneParent);
             Stage tatterProfileStage = new Stage();
+            tatterProfileStage.getIcons().add(new Image(getClass().getResourceAsStream("/Pictures/ikona.jpeg")));
             tatterProfileStage.setScene(tatterProfileScene);
             tatterProfileStage.setResizable(false);
             tatterProfileStage.setTitle("Tattoo date reservartion");

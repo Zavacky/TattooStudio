@@ -1,4 +1,6 @@
 package com.studio.tattoostudio.controllers;
+import com.studio.tattoostudio.TattooStudioApplication;
+import com.studio.tattoostudio.buisness.DesignPictureManager;
 import com.studio.tattoostudio.dao.StudioDao;
 import com.studio.tattoostudio.data.Client;
 import com.studio.tattoostudio.data.DateOfTattoo;
@@ -16,10 +18,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class MenuSceneController {
     @FXML
@@ -36,6 +43,8 @@ public class MenuSceneController {
     private ListView<DateOfTattoo> datesTableView;
     @FXML
     private Button deleteReservartionButton;
+    @FXML
+    private Button refreshButton;
     private final StudioDao studioDao = Factory.INSTANCE.getStudioDao();
     private String client;
 
@@ -55,6 +64,18 @@ public class MenuSceneController {
         salonesChoiceBox.getSelectionModel().selectFirst();
         artistsTableView.setItems(FXCollections.observableList(Factory.INSTANCE.getTattooArtistDao().getAllByStudio(salonesChoiceBox.getSelectionModel().getSelectedItem().getId())));
         datesTableView.setItems(FXCollections.observableList(Factory.INSTANCE.getDateOfTattooDao().getAllByClient(client)));
+
+        List<Image> images = Arrays.asList(
+                new Image(getClass().getResourceAsStream("/Pictures/love ink front table.jpg"), 200, 200, true, true),
+                new Image(getClass().getResourceAsStream("/Pictures/tattoo_work_1.jpg"), 200, 200, true, true),
+                new Image(getClass().getResourceAsStream("/Pictures/love ink couch.jpg"), 200, 200, true, true),
+                new Image(getClass().getResourceAsStream("/Pictures/tattoo_work_2.jpg"), 200, 200, true, true),
+                new Image(getClass().getResourceAsStream("/Pictures/love ink seats.jpg"), 200, 200, true, true)
+        );
+        List<ImageView> imageViews = images.stream()
+                .map(ImageView::new)
+                .toList();
+        oldphotosPagination.setPageFactory(imageViews::get);
     }
 
     @FXML
@@ -68,6 +89,7 @@ public class MenuSceneController {
         }
         TatterProfileSceneController tatterProfileSceneController = new TatterProfileSceneController(artist, client);
         openTatterProfileScene(tatterProfileSceneController);
+        reloadTable();
     }
     @FXML
     void onDeleteReservartionButton(ActionEvent event) {
@@ -77,6 +99,11 @@ public class MenuSceneController {
         } catch (EntityNotFoundException e) {
             throw new RuntimeException(e);
         }
+        reloadTable();
+    }
+    @FXML
+    void onRefreshButton(ActionEvent event) {
+        reloadTable();
     }
 
     private void openTattooDescriptionTattooScene(TattooDescriptionController tattooDescriptionController) {
@@ -87,6 +114,7 @@ public class MenuSceneController {
             Parent tattooDescriptionTattooSceneParent = loader.load();
             Scene tattooDescriptionTattooScene = new Scene(tattooDescriptionTattooSceneParent);
             Stage tattooDescriptionTattooStage = new Stage();
+            tattooDescriptionTattooStage.getIcons().add(new Image(getClass().getResourceAsStream("/Pictures/ikona.jpeg")));
             tattooDescriptionTattooStage.setScene(tattooDescriptionTattooScene);
             tattooDescriptionTattooStage.setResizable(false);
             tattooDescriptionTattooStage.setTitle("Tattoo reservation");
@@ -105,6 +133,7 @@ public class MenuSceneController {
             Parent tatterProfileSceneParent = loader.load();
             Scene tatterProfileScene = new Scene(tatterProfileSceneParent);
             Stage tatterProfileStage = new Stage();
+            tatterProfileStage.getIcons().add(new Image(getClass().getResourceAsStream("/Pictures/ikona.jpeg")));
             tatterProfileStage.setScene(tatterProfileScene);
             tatterProfileStage.setResizable(false);
             tatterProfileStage.setTitle("Tattoo Artist");
@@ -113,5 +142,8 @@ public class MenuSceneController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+    private void reloadTable(){
+        datesTableView.setItems(FXCollections.observableList(Factory.INSTANCE.getDateOfTattooDao().getAllByClient(client)));
     }
 }
