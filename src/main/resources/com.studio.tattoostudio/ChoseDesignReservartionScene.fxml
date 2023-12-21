@@ -11,23 +11,23 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane fx:id="designPane" layoutX="40.0" layoutY="33.0" prefHeight="197.0" prefWidth="202.0" />
-      <Label layoutX="300.0" layoutY="52.0" prefHeight="29.0" prefWidth="139.0" text="Miesto na tele: ">
+      <Label layoutX="300.0" layoutY="52.0" prefHeight="29.0" prefWidth="182.0" text="Placement on body">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="300.0" layoutY="131.0" text="Preferovaný deň rezervácie: ">
+      <Label layoutX="300.0" layoutY="131.0" text="Preffered day of the week">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
       <ChoiceBox fx:id="bodyPartChoiceBox" layoutX="300.0" layoutY="81.0" prefWidth="150.0" />
       <ChoiceBox fx:id="preferedDayChoiceBox" layoutX="300.0" layoutY="175.0" prefWidth="150.0" />
-      <Button fx:id="reservationButton" layoutX="300.0" layoutY="247.0" mnemonicParsing="false" onAction="#onReservationButton" prefHeight="41.0" prefWidth="182.0" text="✔ Create reservation" />
+      <Button fx:id="reservationButton" layoutX="300.0" layoutY="247.0" mnemonicParsing="false" onAction="#onReservationButton" prefHeight="41.0" prefWidth="182.0" stylesheets="@../css/Button.css" text="✔ Create reservation" />
       <TextArea fx:id="descriptionTextField" layoutX="40.0" layoutY="279.0" prefHeight="106.0" prefWidth="202.0" />
-      <Label layoutX="40.0" layoutY="259.0" text="Popis prípadných úprav: ">
+      <Label layoutX="40.0" layoutY="259.0" text="Dscription of changes: ">
          <font>
-            <Font size="14.0" />
+            <Font name="System Bold" size="14.0" />
          </font>
       </Label>
    </children>

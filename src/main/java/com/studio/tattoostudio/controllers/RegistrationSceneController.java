@@ -18,39 +18,31 @@ public class RegistrationSceneController {
     private Label allFieldsMandatoryLabel;
     @FXML
     private Label differentPasswordsLabel;
-
     @FXML
     private PasswordField confirmPasswordTextField;
-
     @FXML
     private TextField emailTextField;
-
     @FXML
     private TextField firstNameTextField;
-
     @FXML
     private Label incorrectEmailLabel;
-
     @FXML
     private Label incorrectNumberLabel;
-
     @FXML
     private Button loginButton;
-
     @FXML
     private TextField loginTextField;
-
     @FXML
     private PasswordField passwordTextfield;
-
     @FXML
     private TextField phoneTextField;
-
     @FXML
     private Button registerButton;
-
     @FXML
     private TextField surnameTextField;
+    @FXML
+    private Label existingUserLabel;
+
 
     private ChangeListener<String> textChangeListener = new ChangeListener<String>() {
         @Override
@@ -109,6 +101,11 @@ public class RegistrationSceneController {
                 }
             }
         });
+        if (loginTextField.getText().isEmpty() || passwordTextfield.getText().isEmpty() || confirmPasswordTextField.getText().isEmpty() ||
+                phoneTextField.getText().isEmpty() || emailTextField.getText().isEmpty() || surnameTextField.getText().isEmpty() ||
+                firstNameTextField.getText().isEmpty()) {
+            registerButton.setDisable(true);
+        }
     }
     @FXML
     void onCreateUser(ActionEvent event) {
@@ -119,11 +116,13 @@ public class RegistrationSceneController {
                     surnameTextField.getText(),
                     emailTextField.getText(),
                     phoneTextField.getText()));
+            existingUserLabel.setVisible(false);
         } catch (ClientDoesntExistException e) {
-            throw new RuntimeException(e);
+            existingUserLabel.setVisible(true);
         }
-
-        this.emailTextField.getScene().getWindow().hide();
+        if (!existingUserLabel.isVisible()) {
+            this.emailTextField.getScene().getWindow().hide();
+        }
     }
 
     @FXML

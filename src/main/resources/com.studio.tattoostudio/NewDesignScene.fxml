@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
@@ -20,10 +21,16 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="priceTextField" layoutX="160.0" layoutY="26.0" promptText="€" />
-      <TextArea fx:id="descriptionTextArea" layoutX="156.0" layoutY="126.0" prefHeight="109.0" prefWidth="179.0" />
-      <Button fx:id="chooseImageButton" layoutX="488.0" layoutY="235.0" mnemonicParsing="false" onAction="#onChooseImageButton" text="Choose image" />
-      <Button fx:id="saveButton" layoutX="27.0" layoutY="353.0" mnemonicParsing="false" onAction="#onSaveButton" text="Save" />
+      <TextField fx:id="priceTextField" layoutX="160.0" layoutY="26.0" promptText="€">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextField>
+      <TextArea fx:id="descriptionTextArea" layoutX="156.0" layoutY="126.0" prefHeight="109.0" prefWidth="179.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextArea>
+      <Button fx:id="chooseImageButton" layoutX="465.0" layoutY="235.0" mnemonicParsing="false" onAction="#onChooseImageButton" stylesheets="@../css/Button.css" text="Choose image" />
+      <Button fx:id="saveButton" layoutX="23.0" layoutY="335.0" mnemonicParsing="false" onAction="#onSaveButton" stylesheets="@../css/Button.css" text="Save" />
       <Pane fx:id="selectedPicturePane" layoutX="380.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" />
    </children>
 </AnchorPane>

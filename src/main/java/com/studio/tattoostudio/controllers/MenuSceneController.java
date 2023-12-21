@@ -66,11 +66,11 @@ public class MenuSceneController {
         datesTableView.setItems(FXCollections.observableList(Factory.INSTANCE.getDateOfTattooDao().getAllByClient(client)));
 
         List<Image> images = Arrays.asList(
-                new Image(getClass().getResourceAsStream("/Pictures/love ink front table.jpg"), 200, 200, true, true),
-                new Image(getClass().getResourceAsStream("/Pictures/tattoo_work_1.jpg"), 200, 200, true, true),
-                new Image(getClass().getResourceAsStream("/Pictures/love ink couch.jpg"), 200, 200, true, true),
-                new Image(getClass().getResourceAsStream("/Pictures/tattoo_work_2.jpg"), 200, 200, true, true),
-                new Image(getClass().getResourceAsStream("/Pictures/love ink seats.jpg"), 200, 200, true, true)
+                new Image(getClass().getResourceAsStream("/Pictures/love ink front table.jpg"), 300, 300, true, true),
+                new Image(getClass().getResourceAsStream("/Pictures/tattoo_work_1.jpg"), 300, 300, true, true),
+                new Image(getClass().getResourceAsStream("/Pictures/love ink couch.jpg"), 300, 300, true, true),
+                new Image(getClass().getResourceAsStream("/Pictures/tattoo_work_2.jpg"), 300, 300, true, true),
+                new Image(getClass().getResourceAsStream("/Pictures/love ink seats.jpg"), 300, 300, true, true)
         );
         List<ImageView> imageViews = images.stream()
                 .map(ImageView::new)

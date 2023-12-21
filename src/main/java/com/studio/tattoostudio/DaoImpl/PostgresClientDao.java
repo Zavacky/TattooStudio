@@ -55,17 +55,21 @@ public class PostgresClientDao implements ClientDao {
             String statement = "INSERT INTO client (loginClient, passwordClient, name, surname, email, phone_number) " +
                     "VALUES (?,?,?,?,?,?)";
             GeneratedKeyHolder keyHolder = new GeneratedKeyHolder();
-            jdbcTemplate.update(con -> {
-                PreparedStatement statement1 = con.prepareStatement(statement, Statement.RETURN_GENERATED_KEYS);
+            try {
+                jdbcTemplate.update(con -> {
+                    PreparedStatement statement1 = con.prepareStatement(statement, Statement.RETURN_GENERATED_KEYS);
 
-                statement1.setString(1, client.getLogin());
-                statement1.setString(2, client.getPassword());
-                statement1.setString(3, client.getName());
-                statement1.setString(4, client.getSurname());
-                statement1.setString(5, client.getMail());
-                statement1.setString(6, client.getPhoneNumber());
-                return statement1;
-            }, keyHolder);
+                    statement1.setString(1, client.getLogin());
+                    statement1.setString(2, client.getPassword());
+                    statement1.setString(3, client.getName());
+                    statement1.setString(4, client.getSurname());
+                    statement1.setString(5, client.getMail());
+                    statement1.setString(6, client.getPhoneNumber());
+                    return statement1;
+                }, keyHolder);
+            }catch (Exception e){
+                throw new ClientDoesntExistException();
+            }
             long id = Long.parseLong(keyHolder.getKeyList().get(0).get("idClient").toString());
             Client savedClient = Client.clone(client);
             savedClient.setId(id);
